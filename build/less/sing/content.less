@@ -1,5 +1,152 @@
 //content
 @import 'validation/validation.less';
 
-
-
+.Slider {
+	&-main {
+		.item {
+			height: 800px;
+			background: url(../img/slider/item-1.jpg) center center no-repeat;
+			background-size: cover;
+			color: #fff;
+			h1 {
+				font-size: 72px;
+				font-family: @RS;
+				line-height: 1;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+			h2 {
+				font-size: 38px;
+				font-family: @RS;
+				line-height: 1;
+				margin-bottom: 0;
+				margin-top: 10px;
+			}
+		}
+		.owl-controls {
+			position: absolute;
+			bottom: 30px;
+			width: 100%;
+			left: 0;
+		}
+		.owl-dots {
+			display: flex;
+			justify-content: center;
+			.owl-dot {
+				padding: 5px;
+				span {
+					display: inline-block;
+					border-radius: 50%;
+					.size(18px;18px);
+					background: #79746f;
+					border: 3px solid #79746f;
+				}
+				&.active {
+					span {
+						background: #fff;
+					}
+				}
+			}
+		}
+	}
+}
+.border-preview(@color; @width; @style) {
+	border-color: @color;
+	border-width: @width;
+	border-style: @style;
+}
+.border-blue {
+	.border-preview(@brand-primary; 5px; solid);
+}
+.owl-thumbs {
+	display: flex;
+}
+.item {
+	&-preview {
+		&.big {
+			.item {
+				&-preview {
+					&-content {
+						padding: 30px 30px 15px 30px;
+						h3 {
+							font-size: 28px;
+							margin-bottom: 30px;
+						}
+					}
+					&-footer {
+						padding: 0 30px 25px 30px;
+					}
+				}
+			}
+		}
+		margin: 0 auto 26px;
+		&-date {
+			color:#949494;
+		}
+		&.blue {
+			.border-blue;
+		}
+		&-header {
+			img {
+				width: 100%;
+				draggble: false;
+			}
+		}
+		&-content {
+			padding: 20px 20px 10px 20px;
+			h3 {
+				font-size: 22px;
+				color: #353645;
+				font-family: @RS;
+				margin: 10px 0 25px;
+			}
+			p {
+				font-weight: 300;
+			}
+		}
+		&-footer {
+			justify-content: space-between;
+			padding: 0 20px 20px 20px;
+			font-size: 12px;
+			font-weight: 300;
+			&>div:nth-child(1) {
+				a {
+					margin-right: 15px;
+					display: inline-block;
+					vertical-align: middle;
+					color: #949494;
+					&:nth-child(1) {
+						color: #078cd1;
+					}
+					i,span {
+						display: inline-block;
+						vertical-align: middle;
+						line-height: 1;
+					}
+					i {
+						margin-right: 0px;
+					}
+					&:hover,&:focus {
+						text-decoration: none;
+					}
+				}
+			}
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+.container {
+	position: relative;
+}
+.container-affix {
+	top: 0;
+	position: absolute;
+	z-index: 10;
+	.affix {
+		position: fixed;
+		right: 0;
+		top: 0;
+	}
+}

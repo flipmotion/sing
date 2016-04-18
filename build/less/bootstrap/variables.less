@@ -14,12 +14,24 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
+@base-yllow:             #fffa66;
+@base-light-blue:        #8ff6ff;
+@base-blue:              #078cd1;
+@base-red:               #dd3f3f;
+@base-gray:              #949494;
+@base-green:             #dcff71;
+@base-purple:            #f5b9ff;
+@base-black:             #3d3d3d;
+
 @brand-primary:         darken(#428bca, 6.5%); // #337ab7
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
-
+@brand-yandex:          #fffcb0;
+@brand-green:           #e9ffa6;
+@brand-purple:          #fadbff;
+@brand-blue:            #d0fbff;
 
 //== Scaffolding
 //
@@ -41,8 +53,11 @@
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
+@import url(https://fonts.googleapis.com/css?family=Roboto:300italic,300,100italic,100,400,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic-ext);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700&subset=latin,cyrillic-ext);
+@RS: 'Roboto Slab';
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Roboto", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -52,9 +67,9 @@
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
-@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
-@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h1:            floor((@font-size-base * 3)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.5)); // ~24px
 @font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
 @font-size-h5:            @font-size-base;
 @font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
@@ -167,6 +182,22 @@
 @btn-danger-color:               #fff;
 @btn-danger-bg:                  @brand-danger;
 @btn-danger-border:              darken(@btn-danger-bg, 5%);
+
+@btn-yandex-color:               #353645;
+@btn-yandex-bg:                  @brand-yandex;
+@btn-yandex-border:              darken(@btn-default-border, 5%);
+
+@btn-green-color:                #353645;
+@btn-green-bg:                   @brand-green;
+@btn-green-border:               darken(@btn-default-border, 5%);
+
+@btn-purple-color:               #353645;
+@btn-purple-bg:                  @brand-purple;
+@btn-purple-border:              darken(@btn-default-border, 5%);
+
+@btn-blue-color:                 #353645;
+@btn-blue-bg:                    @brand-blue;
+@btn-blue-border:                darken(@btn-default-border, 5%);
 
 @btn-link-disabled-color:        @gray-light;
 

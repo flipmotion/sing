@@ -2,14 +2,71 @@
 	background: #3c3c3c;
 	padding-top: 50px;
 	padding-bottom: 80px;
+	font-weight: 300;
+	&-icon {
+		text-align: center;
+		color: #a7d9ff;
+		&:hover,&:focus {
+			text-decoration: none;
+			color: #a7d9ff;
+		}
+		i {
+			margin-bottom: 5px;
+		}
+	}
+	.up {
+		color: #a7d9ff;
+		font-size: 14px;
+		margin-top: 25px;
+		span,i {
+			vertical-align: bottom;
+			display: inline-block;
+			line-height: 12px;
+		}
+		i {
+			margin-right: 5px;
+		}
+		&:hover,&:focus {
+			text-decoration: none;
+			color: #a7d9ff;
+		}
+	}
 	form {
 		width: 230px;
 		margin-right: -50px;
 		label {
-			font-weight: 400;
+			font-weight: 300;
 			font-size: 14px;
 			color:#fff;
 			padding-top: 13px;
+		}
+		.form-control {
+			background: transparent;
+			border-radius: 0;
+			border-color: #6a6a6a;
+			border-right: none;
+			outline: none;
+			box-shadow: none;
+			color: #a6a6a6;
+			height: 40px;
+			&::-webkit-input-placeholder {color:#a6a6a6;}
+			&::-moz-placeholder          {color:#a6a6a6;}/* Firefox 19+ */
+			&:-moz-placeholder           {color:#a6a6a6;}/* Firefox 18- */
+			&:-ms-input-placeholder      {color:#a6a6a6;}
+		}
+		.btn {
+			background: transparent;
+			border-color: #6a6a6a;
+			border-radius: 0;
+			border-left: none;
+			outline: none;
+			box-shadow: none;
+			height: 40px;
+			&:active {
+				background: transparent;
+				outline: none;
+				border-color: #6a6a6a;
+			}
 		}
 	}
 	ul {
@@ -50,7 +107,9 @@
 					display: inline-block;
 					padding: 0 30px;
 					*{
-						display: block;
+						display: table;
+						margin-left: auto;
+						margin-right: auto;
 						text-align: center;
 					}
 				}
@@ -59,9 +118,38 @@
 				display: flex;
 				flex-direction: column;
 				align-items: flex-end;
+				padding-left: 30px;
 				form {
 					margin-right: 0;
+					.form-control {
+						background: #fff;
+						color: #333;
+						&::-webkit-input-placeholder {color:#b7bbc2;}
+						&::-moz-placeholder          {color:#b7bbc2;}/* Firefox 19+ */
+						&:-moz-placeholder           {color:#b7bbc2;}/* Firefox 18- */
+						&:-ms-input-placeholder      {color:#b7bbc2;}
+					}
+					.btn {
+						background: #fff;
+						
+						&:active {
+							background: #fff;
+							
+						}
+					}
 				}
+			}
+		}
+	}
+	.copyrights {
+		margin-top: 120px;
+		text-align: right;
+		color: #a6a6a6;
+		a {
+			color: #a7d9ff;
+			&:hover,&:focus {
+				color: #a7d9ff;
+				text-decoration: none;
 			}
 		}
 	}

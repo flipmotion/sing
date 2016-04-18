@@ -5,6 +5,7 @@
 		&-inner-1 {
 			padding: 15px 0;
 			border-bottom: 1px solid rgba(59,59,59,.2);
+			font-size: 12px;
 			ul {
 				margin-bottom: 0;
 				list-style-type: none;
@@ -16,6 +17,18 @@
 			.my-navigation {
 				li {
 					padding: 0 10px;
+				}
+				a {
+					font-weight: 300;
+					span {
+						display: inline-block;
+						vertical-align: middle;
+					}
+					i {
+						vertical-align: middle;
+						margin-right: 5px;
+						margin-top: -3px;
+					}
 				}
 			}
 			.social {
@@ -38,6 +51,23 @@
 				padding-top: 10px;
 				display: inline-block;
 			}
+			.subtitle {
+				font-family: @RS;
+				font-size: 22px;
+				a {
+					color: #078cd1;
+					border-bottom: 1px solid #078cd1;
+					&:hover,&:focus {
+						text-decoration: none;
+						border-color: transparent;
+					}
+				}
+			}
+			p {
+				font-size: 12px;
+				font-weight: 300;
+
+			}
 			.all {
 				justify-content: space-between;
 				&>div:nth-child(1){
@@ -58,7 +88,7 @@
 	}
 	&-lvl-2 {
 		background: #ffee00;
-		padding: 10px 0;
+		padding: 20px 0;
 		.navbar-toggle {
 			padding: 0;
 			display: block;
@@ -81,7 +111,14 @@
 				color: #353645;
 				justify-content: space-between;
 				li {
-					padding: 0 10px;
+					padding: 0 5px;
+				}
+				a {
+					font-size: 15px;
+					color: #353645;
+					&:hover,&:focus{
+						text-decoration: none;
+					}
 				}
 			}
 			&>div:nth-child(2) {
@@ -90,6 +127,27 @@
 			form {
 				padding:0;
 				width: 210px;
+				.form-control {
+					border: none;
+					border-radius: 0;
+					box-shadow: none;
+					font-size: 15px;
+					background: rgba(255,255,255,.5);
+					height: 34px;
+					&::-webkit-input-placeholder {color:#c8bb00;}
+					&::-moz-placeholder          {color:#c8bb00;}/* Firefox 19+ */
+					&:-moz-placeholder           {color:#c8bb00;}/* Firefox 18- */
+					&:-ms-input-placeholder      {color:#c8bb00;}
+				}
+				.btn {
+					border: none;
+					background: rgba(255,255,255,.5);
+					box-shadow: none;
+					border-radius: 0;
+					outline: none;
+					height: 34px;
+					margin-left: 0;
+				}
 			}
 		}
 	}
