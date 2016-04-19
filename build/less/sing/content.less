@@ -58,11 +58,55 @@
 .border-blue {
 	.border-preview(@brand-primary; 5px; solid);
 }
+
+.border-yellow {
+	.border-preview(@base-yellow; 5px; solid);
+}
+.border-light-blue {
+	.border-preview(@base-light-blue; 5px; solid);
+}
+.border-purple {
+	.border-preview(@base-purple; 5px; solid);
+}
+.border-light-gray {
+	.border-preview(@base-light-gray; 5px; solid);
+}
+//thimbs slider
 .owl-thumbs {
 	display: flex;
+	padding: 0 160px;
+	position: absolute;
+	left: 0;
+	bottom:0;
+	width: 100%;
+	z-index: 1;
+	.owl-thumb-item {
+		cursor: pointer;
+		appearance: none;
+		border: none;
+		padding: 0;
+		margin:0;
+		border:none;
+		outline: none;
+	}
+	.active {
+		position: relative;
+		&:after {
+			content: '';
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			position: absolute;
+			background: rgba(255,255,255,.5);
+			border: 3px solid @base-yellow;
+		}
+	}
 }
+//items all main page
 .item {
 	&-preview {
+		margin: 13px auto 13px;
 		&.big {
 			.item {
 				&-preview {
@@ -79,14 +123,71 @@
 				}
 			}
 		}
-		margin: 0 auto 26px;
 		&-date {
 			color:#949494;
 		}
 		&.blue {
 			.border-blue;
+			.item-preview-navigation {
+				background: @brand-primary;
+			}
+		}
+		&.yellow {
+			.border-yellow;
+
+			.item-preview-navigation {
+				background: @base-yellow;
+			}
+		}
+		&.light-blue {
+			.border-light-blue;
+
+			.item-preview-navigation {
+				background: @base-light-blue;
+			}
+		}
+		&.purple {
+			.border-purple;
+
+			.item-preview-navigation {
+				background: @base-purple;
+			}
+		}
+		&.light-gray {
+			.border-light-gray;
+
+			.item-preview-navigation {
+				background: @base-light-gray;
+			}
+		}
+		&-navigation {
+			background: #eee;
+			display: flex;
+			align-items: center;
+			padding: 15px 5px 15px 16px;
+			&-slider {
+				display: flex;
+				&>div {
+					padding: 0 8px;
+
+				}
+				i {
+					cursor: pointer;
+				}
+			}
+			&>div:nth-child(1){
+				flex-grow:1;
+			}
+			h4 {
+				font-size: 16px;
+				font-weight: 300;
+				margin: 0;
+				line-height: 1;
+				text-transform: uppercase;
+			}
 		}
 		&-header {
+			position: relative;
 			img {
 				width: 100%;
 				draggble: false;
@@ -135,18 +236,122 @@
 				margin-bottom: 0;
 			}
 		}
+		&-social {
+			&.light-blue {
+				.border-light-blue;
+			}
+			&-content {
+				padding: 30px 50px;
+				.my-flex {
+					justify-content: space-between;
+					margin: 30px 0 30px;
+				}
+				.btn {
+					border-radius: 0;
+					font-size: 16px;
+					background: #f53a3a;
+					padding: 15px 0;
+					border:none;
+					text-transform: uppercase;
+					font-weight: 300;
+					margin-top: 30px;
+				}
+				h4 {
+					font-weight: 300;
+					font-size: 16px;
+					text-transform: uppercase;
+				}
+				h3 {
+					font-size: 24px;
+					margin: 5px 0;
+				}
+			}
+		}
+		&.all-music {
+			h3 {
+				margin: 35px 0;
+				font-size: 24px;
+				line-height: 30px;
+			}
+		}
+	}
+	&-interesting {
+		margin: 13px auto 13px;
+		&.light-blue {
+			.border-light-blue;
+		}
+		&-header {
+			h4 {
+				padding: 14px 22px 16px;
+				font-size: 14px;
+				font-weight: 300;
+				text-transform: uppercase;
+				line-height: 1;
+				margin: 0;
+				background: @base-light-blue;
+			}
+		}
+		&-content {
+			padding: 20px;
+			h3 {
+				font-size: 22px;
+				display: table;
+				margin-top: 0px;
+				margin-bottom: 15px;
+				&>* {
+					display: table-cell;
+					vertical-align: top;
+					&:nth-child(1) {
+						padding-right: 10px;
+						width: 30px;
+					}
+				}
+			}
+			ul {
+				list-style-type: none;
+				padding: 0;
+				margin:0;
+				a {
+					color: #353645;
+					&:hover,&:focus {
+						color: #353645;
+						text-decoration: none;
+					}
+				}
+				>li {
+					
+					padding-top: 10px;
+					>ul {
+						list-style-type: disc;
+						padding-left: 40px;
+						li {
+							padding-bottom: 0;
+							padding-top: 0;
+						}
+					}
+				}
+			}
+		}
 	}
 }
-.container {
-	position: relative;
-}
+
 .container-affix {
-	top: 0;
-	position: absolute;
+	top: 50%;
+	position: static;
+	float: right;
 	z-index: 10;
-	.affix {
-		position: fixed;
-		right: 0;
-		top: 0;
+	margin-top: 120px;
+	margin-bottom: -1000px;
+	transition: @transition;
+	.navbar {
+		transition: @transition;
+		top:0;
+		will-change: position, top;
+		&.affix {
+			position: fixed;
+			right: 0;
+			top: 45%;
+			//transform: translateY(-50%);
+		}
 	}
 }
