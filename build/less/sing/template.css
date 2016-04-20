@@ -1,0 +1,191 @@
+/*@import "keyframes.scss";*/
+.column {
+  width: 100px;
+  height: 400px;
+  margin: 200px auto;
+  /*border: 1px solid red;*/
+  display: block; }
+
+.player {
+  width: 98px;
+  height: 53px;
+  border: 1px solid #e7e7e7;
+  float: right;
+  background: #FFF;
+  position: relative;
+  font-family: 'Roboto Light';
+  font-size: 14px;
+  color: #353645;
+  position: relative;
+  /*animation: slider-close 2s;*/
+  /*overflow: hidden;*/ }
+  .player .track-data {
+    height: 48px;
+    overflow: hidden; }
+    .player .track-data .controls {
+      width: 65px;
+      height: 48px;
+      position: absolute;
+      left: 17px;
+      z-index: 5; }
+      .player .track-data .controls .prev {
+        display: block;
+        width: 16px;
+        height: 9px;
+        border: none;
+        background: url("../../img/prev.png");
+        margin-top: 22px;
+        float: left;
+        cursor: pointer; }
+      .player .track-data .controls .play {
+        display: block;
+        width: 13px;
+        height: 15px;
+        border: none;
+        background: url("../../img/play.png");
+        margin: 19px 10px 0px;
+        float: left;
+        cursor: pointer; }
+      .player .track-data .controls .next {
+        display: block;
+        width: 16px;
+        height: 9px;
+        border: none;
+        background: url("../../img/next.png");
+        margin: 22px 0px 0px 0px;
+        float: left;
+        cursor: pointer; }
+    .player .track-data .info {
+      position: absolute;
+      left: 100px;
+      display: none;
+      z-index: 5;
+      /*animation: info-hide 1s;*/ }
+      .player .track-data .info .title {
+        color: #949494;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding-left: 20px;
+        padding-top: 3px; }
+      .player .track-data .info .description {
+        color: #353645;
+        font-size: 14px;
+        padding-left: 20px;
+        height: 16px;
+        line-height: 16px; }
+    .player .track-data .button {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 19px;
+      right: 14px;
+      background: url("../../img/playlist_button.png") left center no-repeat;
+      cursor: pointer;
+      display: none;
+      z-index: 5; }
+      .player .track-data .button.open {
+        background: url("../../img/playlist_button.png") right center no-repeat; }
+  .player .track-line {
+    height: 53px;
+    position: absolute;
+    bottom: 0px;
+    background: #ededed;
+    width: 100%;
+    /*animation: timeline-up 1s;*/ }
+    .player .track-line .timeline {
+      width: 0%;
+      height: 53px;
+      background: #d9d9d9;
+      position: absolute;
+      bottom: 0px;
+      /*animation: timeline-up 1s;*/ }
+  .player .playlist {
+    height: 185px;
+    /*overflow-y: scroll;*/
+    width: 308px;
+    margin-left: -1px;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    margin-top: 6px;
+    border: 1px solid #e7e7e7;
+    /*border-width: 0px;*/
+    /*animation: playlist-close 1s;*/ }
+    .player .playlist .track {
+      height: 63px;
+      background: #FFF;
+      border-bottom: 1px solid #e7e7e7;
+      cursor: pointer; }
+      .player .playlist .track .title {
+        color: #949494;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding-left: 20px;
+        padding-top: 10px; }
+      .player .playlist .track .description {
+        color: #353645;
+        font-size: 14px;
+        padding-left: 20px;
+        height: 16px;
+        line-height: 16px; }
+      .player .playlist .track .time {
+        float: right;
+        margin-top: -16px;
+        margin-right: 20px;
+        color: #949494;
+        font-size: 12px; }
+
+/*.player {
+
+    &:hover,
+    &.short {       
+        width: 308px;
+        animation-name: slider-open;
+        animation-duration: 1s;
+
+        .info, .button {
+            display: block;
+            animation: info-show 2s;
+        }
+
+        .track-line, .timeline {
+            height: 5px;
+            margin-top: -48px;
+            animation: timeline-down 1s;
+        }                
+    }
+
+    &.open {
+        .button {
+            background-position-x: right;
+        }
+
+        .playlist {
+            animation: playlist-open 1s;
+            height: 185px;
+            border-width: 1px;
+            display: block;
+        }
+    }
+}*/
+.mCSB_scrollTools {
+  margin: 0px !important;
+  padding: 0px !important;
+  width: 6px !important; }
+
+.mCSB_container {
+  margin-right: 6px !important; }
+
+.mCSB_draggerContainer, .mCSB_draggerRail {
+  width: 6px !important;
+  background: #EDEDED !important;
+  border: 0px !important; }
+
+.mCSB_dragger_bar, .mCSB_dragger {
+  width: 6px !important;
+  background: #D9D9D9 !important;
+  border: 0px !important; }
+
+/*# sourceMappingURL=template.css.map */

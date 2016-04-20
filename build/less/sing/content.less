@@ -103,6 +103,10 @@
 		}
 	}
 }
+//banner
+.banner {
+	margin: 70px auto 10px;
+}
 //items all main page
 .item {
 	&-preview {
@@ -169,7 +173,6 @@
 				display: flex;
 				&>div {
 					padding: 0 8px;
-
 				}
 				i {
 					cursor: pointer;
@@ -237,6 +240,7 @@
 			}
 		}
 		&-social {
+			margin: 13px auto 13px;
 			&.blue {
 				.border-blue;
 			}
@@ -347,6 +351,7 @@
 		transition: @transition;
 		top:0;
 		will-change: position, top;
+		z-index: 10;
 		&.affix {
 			position: fixed;
 			right: 0;
