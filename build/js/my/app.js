@@ -8,6 +8,7 @@ $(document).ready(function(){
 	let owl = $('[data-item="slider"]');
 	let owlPreviewSmall = $('[data-item="item-preview-slider"]');
 	let owlPreview = $('[data-item="slider-preview"]');
+	let owlMusicPreview = $('[data-item="slider-music"]');
 	
 	owl.owlCarousel({
 		loop:true,
@@ -21,6 +22,21 @@ $(document).ready(function(){
 		navText: [
 		"<i class='my-arrow-left'></i>", 
 		"<i class='my-arrow-right'></i>"
+		],
+		dots: true
+	});
+	owlMusicPreview.owlCarousel({
+		loop:true,
+		margin:30,
+		nav:true,
+		dots:true,
+		items:4,
+		autoplayHoverPause: true,
+		autoplayTimeout: 5000,
+		autoplay:true,
+		navText: [
+		"<i class='my-icon left-arr-2'></i>", 
+		"<i class='my-icon right-arr-2'></i>"
 		],
 		dots: true
 	});
