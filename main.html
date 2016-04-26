@@ -167,10 +167,12 @@
 					<!-- affix -->
 					<nav class="navbar navbar-default nav-fixed-top my-right-nav" id="my-nav">
 						<ul class="nav">
-							<li><a href="#">test</a></li>
-							<li><a href="#test">test</a></li>
-							<li><a href="#">test</a></li>
-							<li><a href="#">test</a></li>
+							<li><a href="#block1">Наверх</a></li>
+							<li><a href="#block2">Новости</a></li>
+							<li><a href="#block3">Статьи</a></li>
+							<li><a href="#block4">Это<br>интересно</a></li>
+							<li><a href="#block5">Рубрики</a></li>
+							<li><a href="#block6">Блоги</a></li>
 							<li>
 								<div class="player">
 									<div class="track-data">
@@ -200,11 +202,14 @@
 									</audio>
 								</div>
 							</li>
+
+							<li><a href="#">Цвета</a></li>
 						</ul>
 					</nav><!-- affix END -->
 				</div>
 
-				<div class="container" id="test">
+				<div class="container">
+					<div id="block1">
 					<div class="row">
 						<div class="col-xs-12 col-md-12 col-sm-12 text-center">
 							<h1>Новости</h1>
@@ -390,7 +395,7 @@
 									</div>
 									<div class="row">
 										<div class="col-xs-12 col-md-12 col-sm-12">
-											<button class="btn btn-purple text-uppercase btn-block rubrics">Купить журнал</button>
+											<button class="btn btn-purple text-uppercase btn-block rubrics my-margin">Купить журнал</button>
 										</div>
 									</div>
 									<div class="row">
@@ -478,7 +483,7 @@
 													</div>
 												</div>
 											</div>
-											<button type="button" class="btn btn-yellow btn-block rubrics text-uppercase">подписаться на журнал</button>
+											<button type="button" class="btn btn-yellow btn-block rubrics text-uppercase my-margin-2">Все новости</button>
 										</div>
 									</div>
 								</div>
@@ -559,7 +564,7 @@
 								</div>
 
 								<div class="col-xs-12 col-md-12 col-sm-12">
-									<button class="btn btn-blue text-uppercase btn-block rubrics">смотреть весь раздел</button>
+									<button class="btn btn-blue text-uppercase btn-block rubrics my-margin-3">смотреть весь раздел</button>
 								</div>
 
 								<div class="col-xs-12 col-md-12 col-sm-12">
@@ -697,20 +702,21 @@
 							</div>
 						</div><!--left infobar END-->
 					</div>
-
+					</div>
 					<div class="row">
 						<div class="col-xs-12 col-md-12 col-sm-12">
 							<img src="assets/img/banner-holder.jpg" class="full-width banner" alt="">
 						</div>
 					</div>
-
+					
+					<div id="block2">
 					<div class="row">
 						<div class="col-xs-12 col-md-12 col-sm-12 text-center">
 							<h1>Новое в Музыкальном муравейнике</h1>
 						</div>
 					</div>
 					<div class="row">
-						<div class="Slider-music">
+						<div class="Slider-music && border-dark-blue">
 							<div data-item="slider-music">
 								<div>
 									<div class="item">
@@ -789,10 +795,12 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
-							<button class="btn btn-blue text-uppercase btn-block rubrics">все предложения</button>
+							<button class="btn btn-dark-blue text-uppercase btn-block rubrics my-margin-3">все предложения</button>
 						</div>
 					</div>
+					</div>
 					<!-- docs -->
+					<div id="block3">
 					<div class="row">
 						<div class="col-xs-12 col-md-12 col-sm-12 text-center">
 							<h1>Статьи</h1>
@@ -979,7 +987,7 @@
 									</div>
 									<div class="row">
 										<div class="col-xs-12 col-md-12 col-sm-12">
-											<button class="btn btn-green text-uppercase btn-block rubrics">все статьи</button>
+											<button class="btn btn-green text-uppercase btn-block rubrics my-margin-4">все статьи</button>
 										</div>
 									</div>
 								</div>
@@ -994,7 +1002,7 @@
 									</div>
 								</div>
 								<div class="col-xs-12 col-md-12 col-sm-12">
-									<button class="btn btn-purple text-uppercase btn-block rubrics">смотреть весь раздел</button>
+									<button class="btn btn-purple text-uppercase btn-block rubrics my-margin-3">смотреть весь раздел</button>
 								</div>
 								<div class="col-xs-12 col-md-12 col-sm-12">
 									<div class="item-preview && blue">
@@ -1019,6 +1027,7 @@
 								</div>
 							</div>
 						</div><!--left infobar END-->
+					</div>
 					</div>
 
 					<div class="row">
@@ -1059,7 +1068,8 @@
 							<h1 class="text-center">Афиша</h1>
 							<div class="item-preview && blue">
 								<div class="item-preview-content">
-									<h3>Дан старт конкурсу детских писем «Я хочу в Артек»</h3>
+									<h3 class="my-margin-bottom-2">Дан старт конкурсу детских писем «Я хочу в Артек»</h3>
+									<p class="date">16 января, 19:00, «Название концертной площадки»</p>
 									<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
 								</div>
 								<div class="item-preview-footer my-flex">
@@ -1075,13 +1085,11 @@
 										<a href="#">
 											<i class="my-icon eye"></i>
 										</a>
-									</div>
-									<div>
-										<p class="item-preview-date">19 декабря, 2016</p>
 									</div>
 								</div>
 								<div class="item-preview-content">
-									<h3>Дан старт конкурсу детских писем «Я хочу в Артек»</h3>
+									<h3 class="my-margin-bottom-2">Дан старт конкурсу детских писем «Я хочу в Артек»</h3>
+									<p class="date">16 января, 19:00, «Название концертной площадки»</p>
 									<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
 								</div>
 								<div class="item-preview-footer my-flex">
@@ -1097,9 +1105,6 @@
 										<a href="#">
 											<i class="my-icon eye"></i>
 										</a>
-									</div>
-									<div>
-										<p class="item-preview-date">19 декабря, 2016</p>
 									</div>
 								</div>
 							</div>
@@ -1108,82 +1113,90 @@
 					</div><!-- docs END-->
 					<div class="row">
 						<div class="col-xs-12 col-md-12 col-sm-12">
-							<h1 class="text-center">Новое в разделе Важно знать</h1>
+							<h1 class="text-center my-margin-5">Новое в разделе Важно знать</h1>
 						</div>
 					</div>
 					<div class="row">
-						<div class="Slider-music">
+						<div class="Slider-music border-orange">
 							<div data-item="slider-music">
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 								<div>
 									<div class="item">
-										<a href="#">
-											<img src="assets/img/slider/item-2.jpg" alt="">
-											<p class="price">5 000 Р</p>
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-5.jpg" alt="">
 										</a>
-										<a href="#">Профессиональная караоке система AST-100</a>
+										<a href="#">Музторг на Краснохолмской</a>
+										<p>Музыкальный магазин</p>
+										<a href="#" class="address">Краснохолмская наб., д.3, стр. 1, Москва, 115172</a>
 									</div>
 								</div>
 							</div>
@@ -1191,7 +1204,726 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4">
-							<button class="btn btn-blue text-uppercase btn-block rubrics">все предложения</button>
+							<button class="btn btn-orange text-uppercase btn-block rubrics my-margin-6">Все организации</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Гороскоп</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && purple">
+										<div class="Slider-preview horoscop" data-item="slider-preview" data-slider-id="1">
+											<div class="item">
+												<img src="assets/img/slider/item-5.png" alt="">
+											</div>
+											<div class="item">
+												<img src="assets/img/slider/item-5.png" alt="">
+											</div>
+											<div class="item">
+												<img src="assets/img/slider/item-5.png" alt="">
+											</div>
+											<div class="item">
+												<img src="assets/img/slider/item-5.png" alt="">
+											</div>
+											<div class="item">
+												<img src="assets/img/slider/item-5.png" alt="">
+											</div>
+										</div>
+										<div class="item-preview-content">
+											<h3>Водолей</h3>
+											<p>Осуществляя свои грандиозные планы, ты будешь тратить очень много энергии, но по-другому вряд ли удастся достичь успеха.</p>
+											<p>На фото Богдан Абросимов, 6 лет.</p>
+										</div>
+										<div class="item-preview-footer my-flex">
+											<div>
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-footer"><!-- for padding-->
+											<button class="btn btn-purple text-uppercase btn-block rubrics">Все организации</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Гороскоп</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && purple">
+										<div class="item-preview-header"><img src="assets/img/content/item-10.jpg" alt=""></div>
+										<div class="item-preview-content">
+											<h3>Арина Бабурскова</h3>
+											<p>Для успеха вокалиста важно всё – голос, репертуар, движение, артистизм и харизма. И, конечно, умение выбрать правильный образ. Наши стилисты помогли Арине Бабурсковой превратится из обычной школьницы в звезду детского шоу.</p>
+										</div>
+										<div class="item-preview-footer my-flex">
+											<div>
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-footer"><!-- for padding-->
+											<button class="btn btn-purple text-uppercase btn-block rubrics">Все организации</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Гороскоп</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && purple">
+										<div class="item-preview-content">
+											<h3 class="my-margin-bottom">Сергей Пенкин: главное<br/> блюдо Нового года — песня!</h3>
+											<div class="desc">
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-content">
+											<h3 class="my-margin-bottom">Антон Беляев: яркие краски <br/>творчества</h3>
+											<div class="desc">
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-content">
+											<h3 class="my-margin-bottom">Карбонарная симфония</h3>
+											<div class="desc">
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-content">
+											<h3 class="my-margin-bottom">Сергей Пенкин: главное <br/>блюдо Нового года — песня!</h3>
+											<div class="desc">
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-content">
+											<h3 class="my-margin-bottom">Антон Беляев: яркие краски <br/>творчества</h3>
+											<div class="desc">
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+										<div class="item-preview-content next">
+											<p>Читайте в следующем выпуске</p>
+											<h3 class="my-margin-bottom">Сергей Пенкин: главное <br/>блюдо Нового года — песня!</h3>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<button class="btn btn-purple text-uppercase btn-block rubrics">Все организации</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="Slider-music archive border-blue my-margin-2">
+							<h3 class="text-center">Архив дисков</h3>
+							<div data-item="slider-music-2">
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#">
+											<img src="assets/img/slider/item-6.jpg" alt="">
+										</a>
+										<p>Длинное название диска, можно и две строки</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-12 col-sm-12">
+							<img src="assets/img/banner-holder.jpg" class="full-width banner my-margin-7" alt="">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Вокальные коллективы</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && blue">
+										
+										<div class="item-preview-header"><img src="assets/img/content/item-11.jpg" alt=""></div>
+										<div class="item-preview-content">
+											<h3>В гости к «Непоседам»</h3>
+											<p>Детский театр-студия «Непоседы» провёл пятый, юбилейный, творческий конкурс «Мисс и Мистер «Непоседы»». На сцене школы-театра «Современной пьесы» состоялся финал, в котором приняли участие ребята из Москвы и Санкт-Петербурга.</p>
+										</div>
+										<div class="item-preview-footer my-flex">
+											<div>
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<button class="btn btn-blue text-uppercase btn-block rubrics">Все организации</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Фестивали <br/>и конкурсы</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && blue">
+										
+										<div class="item-preview-header"><img src="assets/img/content/item-12.jpg" alt=""></div>
+										<div class="item-preview-content">
+											<h3>Ближе к звёздам!</h3>
+											<p>Третий этап Третьего международного фестиваля-конкурса вокального искусства «Звездопад талантов» во Всероссийском центре художественного творчества собрал около четырёхсот коллективов и исполнителей из городов России и ближнего зарубежья.</p>
+										</div>
+										<div class="item-preview-footer my-flex">
+											<div>
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<button class="btn btn-blue text-uppercase btn-block rubrics">Все организации</button>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Гости <br/>журнала</h1>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && blue">
+										
+										<div class="item-preview-header"><img src="assets/img/content/item-13.jpg" alt=""></div>
+										<div class="item-preview-content">
+											<h3>Валентин Овсянников: творчество — интересная и тяжёлая работа!</h3>
+											<p>В гостях у журнала «Я пою» – композитор, художественный руководитель Московского детского театра эстрады Валентин Овсянников.</p>
+										</div>
+										<div class="item-preview-footer my-flex">
+											<div>
+												<a href="#">
+													<i class="my-icon heart"></i>
+													<span>23</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+													<span>423</span>
+												</a>
+												<a href="#">
+													<i class="my-icon eye"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+									<button class="btn btn-blue text-uppercase btn-block rubrics">Все организации</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="Slider-music jornal border-blue my-margin-8">
+							<h3 class="text-center blue">Архив журналов</h3>
+							<div data-item="slider-music-3">
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+								<div>
+									<div class="item">
+										<a href="#" class="not-padding">
+											<img src="assets/img/slider/item-7.jpg" alt="">
+										</a>
+										<a href="#" class="text-center">Июль</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-12 col-sm-12 text-center">
+							<h1>Блоги</h1>
+						</div>
+					</div><!-- docs END-->
+					<div class="row">
+						<!--right infobar -->
+						<div class="col-xs-12 col-md-8 col-sm-8">
+							<div class="row">
+								<div class="col-xs-12 col-md-6 col-sm-6">
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<div class="item-preview && light-red">
+												<div class="item-preview-content not-padding-bottom">
+													<h3>Найти свою песню и обрести свой голос!</h3>
+													<div class="top-redactor">
+														<div>
+															<p class="qoute">Плавно-мобильное голосовое поле, так или иначе, образует резкий хорус. Глиссанд ритмоформула, в первом приближении, вероятна.</p>
+															<div class="item-preview-footer my-flex">
+																<div>
+																	<a href="#">
+																		<i class="my-icon heart"></i>
+																		<span>23</span>
+																	</a>
+																	<a href="#">
+																		<i class="my-icon eye"></i>
+																		<span>423</span>
+																	</a>
+																	<a href="#">
+																		<i class="my-icon eye"></i>
+																	</a>
+																</div>
+															</div>
+															<p class="name">Главный редактор «Я пою» Татьяна Пархоменко</p>
+														</div>
+														<div>
+															<img src="assets/img/content/top-redactor.png" alt="">
+														</div>
+													</div>
+												</div>
+											</div>
+											<button class="btn btn-light-red text-uppercase btn-block rubrics my-margin-3">Все посты главного редактора</button>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<div class="item-preview && light-red">
+												<div class="item-preview-header-lvl-1">
+													<div><img src="assets/img/content/item-14.jpg" alt=""></div>
+													<div><p>Константин Константинопольский</p></div>
+												</div>
+												<div class="item-preview-content">
+													<h3>Развиваем слух ребёнка с рождения</h3>
+													<p>Рецепт настоящего новогоднего праздника прост: нарядная ёлка, улыбки, песни, подарки и, конечно, вкусный ужин! Ведущая рубрики Василиса Абросимова пригласила друзей в уже знакомое театральное арт-кафе «Театр жив».</p>
+												</div>
+												<div class="item-preview-footer my-flex">
+													<div>
+														<a href="#">
+															<i class="my-icon heart"></i>
+															<span>23</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+															<span>423</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<div class="item-preview && light-red">
+												<div class="item-preview-header-lvl-1">
+													<div><img src="assets/img/content/item-14.jpg" alt=""></div>
+													<div><p>Константин Константинопольский</p></div>
+												</div>
+												<div class="item-preview-header"><img src="assets/img/content/item-15.jpg" alt=""></div>
+												<div class="item-preview-content">
+													<h3>Трудолюбие! Терпение! Желание!</h3>
+													<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
+												</div>
+												<div class="item-preview-footer my-flex">
+													<div>
+														<a href="#">
+															<i class="my-icon heart"></i>
+															<span>23</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+															<span>423</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-6 col-sm-6">
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<div class="item-preview && light-red">
+												<div class="item-preview-header-lvl-1">
+													<div><img src="assets/img/content/item-14.jpg" alt=""></div>
+													<div><p>Константин Константинопольский</p></div>
+												</div>
+												<div class="item-preview-content">
+													<h3>Развиваем слух ребёнка с рождения</h3>
+													<p>Рецепт настоящего новогоднего праздника прост: нарядная ёлка, улыбки, песни, подарки и, конечно, вкусный ужин! Ведущая рубрики Василиса Абросимова пригласила друзей в уже знакомое театральное арт-кафе «Театр жив».</p>
+												</div>
+												<div class="item-preview-footer my-flex">
+													<div>
+														<a href="#">
+															<i class="my-icon heart"></i>
+															<span>23</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+															<span>423</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<div class="item-preview && light-red">
+												<div class="item-preview-header-lvl-1">
+													<div><img src="assets/img/content/item-14.jpg" alt=""></div>
+													<div><p>Константин Константинопольский</p></div>
+												</div>
+												<div class="item-preview-header"><img src="assets/img/content/item-15.jpg" alt=""></div>
+												<div class="item-preview-content">
+													<h3>Трудолюбие! Терпение! Желание!</h3>
+													<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
+												</div>
+												<div class="item-preview-footer my-flex">
+													<div>
+														<a href="#">
+															<i class="my-icon heart"></i>
+															<span>23</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+															<span>423</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<div class="item-preview && light-red">
+												<div class="item-preview-header-lvl-1">
+													<div><img src="assets/img/content/item-14.jpg" alt=""></div>
+													<div><p>Константин Константинопольский</p></div>
+												</div>
+												<div class="item-preview-content">
+													<h3>Развиваем слух ребёнка с рождения</h3>
+													<p>Рецепт настоящего новогоднего праздника прост: нарядная ёлка, улыбки, песни, подарки и, конечно, вкусный ужин! Ведущая рубрики Василиса Абросимова пригласила друзей в уже знакомое театральное арт-кафе «Театр жив».</p>
+												</div>
+												<div class="item-preview-footer my-flex">
+													<div>
+														<a href="#">
+															<i class="my-icon heart"></i>
+															<span>23</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+															<span>423</span>
+														</a>
+														<a href="#">
+															<i class="my-icon eye"></i>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-md-12 col-sm-12">
+											<button class="btn btn-light-red text-uppercase btn-block rubrics">все посты</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div><!--right infobar END-->
+						<!--left infobar -->
+						<div class="col-xs-12 col-md-4 col-sm-4">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && ">
+										<div class="item-preview-header"><img src="assets/img/content/item-3.png" alt="" class="full-width"></div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<button class="btn btn-purple text-uppercase btn-block rubrics">смотреть весь раздел</button>
+								</div>
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<h1 class="text-center">Музыкальные проекты</h1>
+								</div>
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="item-preview && blue">
+										<div class="item-preview-header"><img src="assets/img/content/item-16.jpg" alt=""></div>
+										<div class="item-preview-content not-padding-bottom">
+											<h3>Всё внимание — на песню!</h3>
+											<p>Софья Кварацхелия из Санкт-Петербурга - участница  второго сезона, была в команде Дмитрия Билана.  Софья блистала на проекте и вышла в финал. На третьем сезоне она выступает в роли репортёра и поддерживает юных участников.</p>
+											<button class="btn btn-blue text-uppercase btn-block rubrics my-margin-3 my-margin-9">Попасть в гороскоп</button>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div><!--left infobar END-->
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-md-12 col-sm-12">
+							<img src="assets/img/banner-holder.jpg" class="full-width banner my-margin-10" alt="">
 						</div>
 					</div>
 				</div>
