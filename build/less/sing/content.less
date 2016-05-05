@@ -726,3 +726,273 @@
 .my-margin-10{
 	margin: 80px 0 100px;
 }
+/*news-list*/
+.bread-crumbs {
+	padding: 45px 0 0 0;
+	li {
+		display: inline-block;
+		list-style: none;
+		padding-right: 10px;
+		position: relative;
+		&:after {
+			content: '';
+			width: 7px;
+			height: 7px;
+			background: url(../img/bread-crumbs.png) no-repeat;
+			position: absolute;
+			top: 7px;
+			right: 0;
+		}
+		&:last-child {
+			&:after {
+				content: none;
+			}
+		}
+		a {
+			color: @brand-darken-blue;
+		}
+	}
+	&-title {
+		font-size: 28px;
+		margin: 20px 0 27px;
+	}
+}
+.paggination-year {
+	&-wrap {
+		display: flex;
+		align-items:center;
+		justify-content:flex-end;
+		padding-top: 37px;
+	}
+	&-title {
+		
+	}
+	&-list {
+		display: inline-block;
+		padding-left: 20px;
+		li {
+			display: inline-block;
+			list-style: none;
+			padding: 5px 9px;
+			margin-right: 2px;
+			&.active {
+				border: 2px solid @brand-yellow;
+				a {
+					color: @gray-base;
+				}
+			}
+			a {
+				color: @brand-darken-blue;
+				font-weight: 400;
+			}
+		}
+	}
+}
+.paggination {
+	&-wrap {
+		display: flex;
+		align-items:center;
+		justify-content:center;
+		margin: 35px 0 100px;
+	}
+	&-title {
+		
+	}
+	&-list {
+		display: inline-block;
+		padding-left: 20px;
+		li {
+			display: inline-block;
+			list-style: none;
+			padding: 5px 9px;
+			margin-right: 2px;
+			&.active {
+				border: 2px solid @brand-yellow;
+				a {
+					color: @gray-base;
+				}
+			}
+			a {
+				color: @brand-darken-blue;
+				font-weight: 400;
+			}
+		}
+	}
+}
+/*END news-list*/
+/*one-news*/
+.one-news {
+	margin: 0 0 90px 0;
+	h3 {
+		font-size: 28px;
+		line-height: 33px;
+	}
+	p {
+		font-size: 16px;
+		font-weight: 400;
+	}
+	img {
+		margin-bottom: 25px;
+	}
+	.comment {
+		font-size: 12px;
+		color: @brand-gray;
+		a {
+			color: @brand-darken-blue;
+		}
+	}
+	.one-news-list{
+		padding-left: 10px;
+		margin-bottom: 25px;
+		li {
+			list-style-type: none;
+			position: relative;
+			font-size: 16px;
+			&:before {
+				content: '';
+				font-size: 0;
+				border: 2px solid @gray-base;
+				border-radius: 50%;
+				position: absolute;
+				top: 47%;
+				left: -9px;
+			}
+		}
+	}
+	&-quote {
+		background-color: @brand-light-yellow;
+		padding: 25px 60px 27px;
+		margin-bottom: 35px;
+		p {
+			font-size: 20px;
+			position: relative;
+			&:before {
+				content: '';
+				background: url(../img/content/one-news-quote.png);
+				width: 23px;
+				height: 19px;
+				position: absolute;
+				top: 7px;
+				left: -30px;
+			}
+		}
+	}
+	.video {
+		margin-bottom: 25px;
+	}
+	.item-preview-footer {
+		padding: 0 0 20px;
+	}
+	.item-preview-date {
+		font-size: 12px;
+	}
+	.one-news-social {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 35px;
+		&>div {
+			&:nth-child(1) {
+				.social-links {
+					padding: 0;
+					margin: 0;
+					li {
+						display: inline-block;
+						list-style: none;
+						margin: 0 1px;
+						a {
+							img {
+								margin: 0;
+							}
+						}
+					}
+				}
+			}
+			&:nth-child(2) {
+				.tags {
+					padding: 0;
+					margin: 0;
+					li {
+						display: inline-block;
+						list-style: none;
+						padding-right: 5px;
+						a {
+							color: @brand-darken-blue;
+							font-size: 12px;
+						}
+						&.active {
+							a {
+								color: @gray-dark;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.more-news {
+	margin: 0;
+	font-size: 22px;
+}
+/*END one-news*/
+/*search-post*/
+.filter {
+	margin-top: 44px;
+	display: flex;
+	justify-content: space-between;
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			margin-right: 7px;
+			.checkbox {
+				position: relative;
+				margin: 0;
+				input[type=checkbox] {
+					opacity: 0;
+				}
+				label {
+					padding: 0;
+					padding-left: 20px;
+					&:before {
+						content: "";
+						display: inline-block;
+						position: absolute;
+						width: 13px;
+						height: 13px;
+						left: 0;
+						top: 3px;
+						border: 1px solid @brand-light-gray;
+					}
+				}
+				input[type=checkbox]:checked + label {
+					&:after {
+						content: "";
+						display: inline-block;
+						position: absolute;
+						width: 13px;
+						height: 13px;
+						left: 0;
+						top: 3px;
+						background: url(../img/checked.png);
+					}
+				}
+			}
+		}
+	}
+}
+.search-request {
+	margin-top: 44px;
+}
+/*END search-post*/
+
+
+/*Menu module*/
+html.open {
+	overflow: hidden !important;
+	.Menu {
+		display: block;
+	}
+}
+/*Menu module END*/

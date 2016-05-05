@@ -106,8 +106,23 @@ $(document).ready(function () {
 			top: headerH + sliderH + 120
 		}
 	});
+
 	$("#my-nav").on('affixed.bs.affix', function () {
 		console.log("in vieiw");
+	});
+
+	//menu
+	var btn = $('[data-item="menu"]');
+	var closeMenu = $('[data-item="menu-close"]');
+	var Menu = document.querySelector('.Menu');
+	btn.on('click', function (e) {
+		$('html').toggleClass('open');
+		var offsetHeader = window.innerHeight - Menu.getBoundingClientRect().top;
+		console.log(Menu.getBoundingClientRect().top);
+		Menu.style.height = offsetHeader + 'px';
+	});
+	closeMenu.on('click', function (e) {
+		$('html').removeClass('open');
 	});
 });
 /*player*/
@@ -263,9 +278,7 @@ function playerClose() {
 //Custom scrollbar
 (function ($) {
 	$(window).load(function () {
-		$(".playlist").mCustomScrollbar({
-			//            mouseWheel: {enable: false}
-		});
+		$(".playlist").mCustomScrollbar({});
 	});
 })(jQuery);
 
