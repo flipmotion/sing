@@ -120,28 +120,18 @@
 				</section>
 			</section>
 			
-			<section class="bread-crumbs-nav">
+			<section class="bread-crumbs-nav lk-padding">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-md-6 col-sm-6">
 							<ul class="bread-crumbs">
 								<li><a href="">Главная</a></li>
-								<li><a href="">Наши друзья</a></li>
-								<li><a href="">Дима Билан</a></li>
+								<li><a href="">Личный кабинет</a></li>
 							</ul>
-							<h3 class="bread-crumbs-title">Дима Билан</h3>
+							<h3 class="bread-crumbs-title">Личный кабинет</h3>
 						</div>
 						<div class="col-xs-12 col-md-6 col-sm-6">
-							<div class="paggination-year-wrap text-right">
-								<p class="paggination-year-title">Год новостей</p>
-								<ul class="paggination-year-list">
-									<li class="active"><a href="">Все</a></li>
-									<li><a href="">2016</a></li>
-									<li><a href="">2015</a></li>
-									<li><a href="">2014</a></li>
-									<li><a href="">...</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -149,223 +139,138 @@
 
 			<section class="content">
 				<div class="container">
-					<!-- <div class="row">
+					<div class="row">
 						<div class="col-xs-12 col-md-6 col-sm-6">
-							<ul class="bread-crumbs">
-								<li><a href="">Главная</a></li>
-								<li><a href="">Список новостей</a></li>
-							</ul>
-							<h3 class="bread-crumbs-title">Список новостей</h3>
-						</div>
-						<div class="col-xs-12 col-md-6 col-sm-6">
-							<div class="paggination-year-wrap text-right">
-								<p class="paggination-year-title">Год новостей</p>
-								<ul class="paggination-year-list">
-									<li class="active"><a href="">Все</a></li>
-									<li><a href="">2016</a></li>
-									<li><a href="">2015</a></li>
-									<li><a href="">2014</a></li>
-									<li><a href="">...</a></li>
-								</ul>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="user-info">
+										<div><img src="assets/img/ava.jpg" alt=""></div>
+										<div>
+											<h3>Ариадна<br/>Константинопольская</h3>
+											<a href="#">Сменить фотографию</a>
+											<a href="#">Смена пароля</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<form class="form-send lk-form" data-toggle="validator"  action="hendler.php" method="post" role="form" data-form="send">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="name">Ваши имя и фамилия</label>
+													<input type="text" data-mask="name" name="user" id="name" class="form-control my-input 	name" placeholder="Ариадна Константинопольская" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<p class="title">Укажите адрес свой и вам больше не понадобится вводить его при каждой покупке в <a href="">магазине</a>.</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="city">Город</label>
+													<input type="text" data-mask="city" name="city" id="city" class="form-control my-input 	city" placeholder="г. Москва" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="street">Улица</label>
+													<input type="text" data-mask="street" name="street" id="street" class="form-control my-input 	street" placeholder="ул. Гвардейская, д. 1" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group">
+													<label for="home">Дом</label>
+													<input type="text" data-mask="home" name="home" id="home" class="form-control my-input 	home" placeholder="2, корп. 1" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group">
+													<label for="room">Квартира</label>
+													<input type="text" data-mask="room" name="room" id="room" class="form-control my-input 	room" placeholder="56" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group">
+													<label for="phone">Телефон</label>
+													<input type="phone" data-mask="phone" name="phone" id="phone" class="form-control my-input 	phone" placeholder="+7 964 234-56-77" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="email">Электронный адрес</label>
+													<input type="email" data-mask="email" name="email" id="email" class="form-control my-input 	email" placeholder="yapoiy@mail.ru" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<label for="" style="opacity:0">adfasdf</label>
+												<p class="request">На новый email придут инструкции по подтверждению адреса. </p>
+											</div>
+										</div>
+									</form>
+								</div>
 							</div>
 						</div>
-					</div> -->
-					<div class="row">
-						<div class="col-xs-12 col-md-8 col-sm-8">
-							<div class="item-preview && yellow one-news">
-								<div class="item-preview-content">
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<h3>Продолжается прием заявок на участие в Международном фестивале-конкурсе «Art-прорыв»</h3>
-										</div>
+						<div class="col-xs-12 col-md-3 col-sm-3">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="links-list">
+										<ul>
+											<li><h3>Действия на сайте</h3></li>
+											<li><a href="#">Ваши организации</a></li>
+											<li><a href="#">Ваши отзывы об организациях</a></li>
+											<li><a href="#">Ваши покупки</a></li>
+											<li><a href="#">Ваши предложения из «Музыкального муравейника»</a></li>
+										</ul>
 									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<img src="assets/img/content/item-2.jpg" alt="" class="full-width">
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<p class="comment">Комментарий о фотографии, например источник.</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<p>Международный фестиваль-конкурс «Art-прорыв» пройдет в Москве с 20 по 23 февраля 2016 года. Оргкомитет фестиваля «Art-прорыв» подготовил для Вас прекрасную сцену с современным звуковым оборудованием, роялем </p>
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<p class="comment">К текстам можно добавлять комментарии. Это могут какие-то выноски или <a href="#">ссылки</a> на какие-либо материалы.</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<h3>Соноропериод интуитивно понятен.</h3>
-											<p>Международный фестиваль-конкурс «Art-прорыв» пройдет в Москве с 20 по 23 февраля 2016 года. Оргкомитет фестиваля «Art-прорыв» подготовил для Вас прекрасную сцену с современным звуковым оборудованием, роялем и специальным покрытием для хореографии, а это, как известно.</p>
-											<p>Новый абзац. Разносторонняя пятиступенчатая громкостная пирамида, на первый взгляд, вызывает цикл. Показательный пример – детройтское техно просветляет дорийский райдер, а после исполнения Утесовым роли Потехина в «Веселых ребятах» слава артиста стала всенародной:</p>
-											<ul class="one-news-list">
-												<li>первый элемент спика;</li>
-												<li>второй элемент спика;</li>
-												<li>третий элемент спика.</li>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-md-3 col-sm-3">
+							<div class="row">
+								<div class="col-xs-12 col-md-12 col-sm-12">
+									<div class="links-list">
+										<div><img src="assets/img/lk-star.png" alt=""></div>
+										<div>
+											<ul>
+												<li><h3>Ваше избранное</h3></li>
+												<li><a href="#">Организации</a></li>
+												<li><a href="#">Товары в магазине</a></li>
+												<li><a href="#">Предложения из «Музыкального муравейника»</a></li>
 											</ul>
 										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<!-- comment -->
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<div class="one-news-quote">
-												<p>До недавнего времени считалось, что основная стадия проведения рыночного исследования развивает фирменный стиль.</p>
-											</div>
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<p class="comment">Например, у нас есть цитата некой персоны. Мы можем дать <a href="#">ссылку на другие статьи</a> с этим человеком.</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<!-- 16:9 aspect ratio -->
-											<div class="embed-responsive embed-responsive-16by9 video">
-											  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rrCVCh_Lq2Y"></iframe>
-											</div>
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<p class="comment">В целом, комментарии вообще хороший инструмент, освобождает текст от всяких скобочек и звёздочек.</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<p>Международный фестиваль-конкурс «Art-прорыв» пройдет в Москве с 20 по 23 февраля 2016 года. Оргкомитет фестиваля «Art-прорыв» подготовил для Вас прекрасную сцену с современным звуковым оборудованием, роялем и специальным покрытием для хореографии, а это, как известно.</p>
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<!-- comment -->
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<div class="item-preview-footer my-flex">
-												<div>
-													<a href="#">
-														<i class="my-icon heart"></i>
-														<span>23</span>
-													</a>
-													<a href="#">
-														<i class="my-icon eye"></i>
-														<span>423</span>
-													</a>
-													<a href="#">
-														<i class="my-icon share"></i>
-													</a>
-												</div>
-												<div>
-													<p class="item-preview-date">19 декабря, 2016</p>
-												</div>
-											</div>
-											<hr>
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<!-- comment -->
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-xs-12 col-md-9 col-sm-9">
-											<div class="one-news-social">
-												<div>
-													<p>Поделится</p>
-													<ul class="social-links">
-														<li><a href="#"><img src="assets/img/content/one-news-social-1.png" alt=""></a></li>
-														<li><a href="#"><img src="assets/img/content/one-news-social-2.png" alt=""></a></li>
-														<li><a href="#"><img src="assets/img/content/one-news-social-3.png" alt=""></a></li>
-														<li><a href="#"><img src="assets/img/content/one-news-social-4.png" alt=""></a></li>
-														<li><a href="#"><img src="assets/img/content/one-news-social-5.png" alt=""></a></li>
-													</ul>
-												</div>
-												<div>
-													<ul class="tags">
-														<li class="active"><a href="#">#Теги</a></li>
-														<li><a href="#">Тег</a></li>
-														<li><a href="#">Концерты</a></li>
-														<li><a href="#">Ещё какой-то тег</a></li>
-														<li><a href="#">Журнал</a></li>
-														<li><a href="#">...</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-										<div class="col-xs-12 col-md-3 col-sm-3">
-											<!-- comment -->
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-4 col-sm-4">
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<h3 class="more-news">Читайте также</h3>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3>Дан старт конкурсу детских писем «Я хочу в Артек»</h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3>Дан старт конкурсу детских писем «Я хочу в Артек»</h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
+									<div class="links-list">
+										<div><img src="assets/img/lk-heart.png" alt=""></div>
+										<div>
+											<ul>
+												<li><h3>Понравившиеся материалы</h3></li>
+												<li><a href="#">Новости</a></li>
+												<li><a href="#">Статьи</a></li>
+												<li><a href="#">Посты в блогах</a></li>
+												<li><a href="#">Все публикации</a></li>
+											</ul>
 										</div>
 									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && ">
-										<div class="item-preview-header"><img src="assets/img/content/baner-2.png" alt="" class="full-width"></div>
-									</div>	
 								</div>
 							</div>
 						</div>
