@@ -1167,3 +1167,140 @@ html.open {
 	}
 }
 /*END organization-catalog*/ 
+/*ant-music*/ 
+.btn-table {
+	display: table;
+	margin: 0 auto;
+}
+.ant {
+	&-item {
+		background-color: #f5f5f5;
+		height: 190px;
+		padding-top: 35px;
+		vertical-align: bottom;
+		position: relative;
+		margin: 13px auto;
+		&.not-bg {
+			background-color: #fff;
+			a {
+				margin-top: 10px;
+				display: block;
+			}
+		}
+		h3 {
+			margin: 0 0 20px;
+		}
+		.imgWrap {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+		}
+	}
+	.item-preview{
+		&-header {
+			height: 190px;
+			padding: 20px 20px 0;
+			background-color: #fff !important;
+			display: flex;
+			justify-content: center;
+			img {
+				width: auto;
+			}
+		}
+		&-content {
+			a {
+				color: @brand-darken-blue;
+			}
+		}
+		&-footer {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			font-size: 16px;
+			&>div:nth-child(1) {
+				a {
+					margin-right: 5px;
+					vertical-align: text-bottom;
+				}
+			}
+			p {
+				color: #353645;
+			}
+		}
+	}
+}
+/*END ant-music*/ 
+/*ant-card*/ 
+	.ant-card {
+		.owl-controls {
+			display: block;
+			.right-arr-3 {
+				position: absolute;
+				right: 15px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			.left-arr-3 {
+				position: absolute;
+				left: 15px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		.owl-thumbs {
+			width: auto;
+			position: static;
+			margin-top: 10px;
+			.owl-thumb-item{
+				position: relative;
+				margin-right: 10px;
+				&:after {
+					content: '';
+					top:0;
+					bottom:-1px;
+					left:0;
+					right:0;
+					position: absolute;
+				}
+				&.active {
+					&:after {
+						border: 8px solid @brand-yellow;
+					}
+				}
+			}
+			padding: 0;
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.item-preview{
+		a {
+			color: @brand-darken-blue;
+		}
+		.bread-crumbs{
+			&.ant-card{
+				padding: 0;
+			}
+		}
+		h2 {
+			margin: 20px 0;
+		}
+		.price {
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			h2 {
+				margin-right: 30px;
+			}
+			&>div:nth-child(2){
+				display: flex;
+				align-items: center;
+				.star {
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+/*END ant-card*/ 
