@@ -305,3 +305,55 @@ function playerClose() {
 		});
 	});
 })(jQuery);
+
+//file 
+$(document).ready(function () {
+	//simple file preview manipulations
+	var imagesPreview = function(input, placeToInsertImagePreview) {
+		if (input.files) {
+			var filesAmount = input.files.length;
+			if(filesAmount >= 1){
+				for (var i = 0; i < filesAmount; i++) {
+					var file = input.files[i];
+					setUp(placeToInsertImagePreview,file);
+				}
+				var list = $('.wrap-img').length;
+				$('.wrap-img').append('<div class="del"></div>');
+				var inputHidden = $($.parseHTML('<input type="hidden" class="hidden">')).attr('value', window.URL.createObjectURL(file));
+				$(inputHidden).appendTo('.wrap-img div');
+				$('.del').on('click',function(e){
+					$(this).parent('.wrap-img').remove();
+					var list = $('.wrap-img').length;
+					if(list <= 0) {
+						placeholdIt(placeToInsertImagePreview);
+					}
+					calc();
+				});
+			}
+			else {
+				placeholdIt(placeToInsertImagePreview);
+			}
+		}
+	};
+	function setUp(place,file) {
+		var img = $($.parseHTML('<img>')).attr('src', window.URL.createObjectURL(file));
+		img.onload = function(e){
+			window.URL.revokeObjectURL(this.src);
+		}
+		
+		img.appendTo(place).wrap("<div class='wrap-img' data-title="+file.name.replace(/\s/g, '&nbsp;').replace('—', '-')+"><div></div></div>").addClass('loadedimg');
+		$(place).find('.no-photo').remove();
+		$(place).addClass('when-upload-photo');
+		$(place).removeClass('when-no-photo');
+	}
+
+	function placeholdIt(place) {
+		$(place).removeClass('when-upload-photo');
+		$(place).addClass('when-no-photo');
+		$(place).html('<div class="no-photo"><img src="http://placehold.it/120x80"></div>');
+	}
+	$('[data-item="photo"]').on('change', function() {
+		$('div.photo-upload-container.one').html(' ');
+		imagesPreview(this, 'div.photo-upload-container.one');
+	});
+});
