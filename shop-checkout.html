@@ -120,235 +120,116 @@
 				</section>
 			</section>
 			
-			<section class="bread-crumbs-nav">
+			<section class="bread-crumbs-nav lk-padding">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-md-6 col-sm-6">
-							<ul class="bread-crumbs">
-								<li><a href="">Главная</a></li>
-								<li><a href="">Список новостей</a></li>
-							</ul>
-							<h3 class="bread-crumbs-title">Список новостей</h3>
+							<h3 class="bread-crumbs-title">Ваш заказ</h3>
 						</div>
 						<div class="col-xs-12 col-md-6 col-sm-6">
-							<div class="paggination-year-wrap text-right">
-								<p class="paggination-year-title">Год новостей</p>
-								<ul class="paggination-year-list">
-									<li class="active"><a href="">Все</a></li>
-									<li><a href="">2016</a></li>
-									<li><a href="">2015</a></li>
-									<li><a href="">2014</a></li>
-									<li><a href="">...</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section class="content">
+			<section class="content shop-checkout">
 				<div class="container">
 					<div class="row">
-						<div class="col-xs-12 col-md-4 col-sm-4">
+						<div class="col-xs-12 col-md-3 col-sm-3">
+							
+						</div>
+						<div class="col-xs-12 col-md-6 col-sm-6">
 							<div class="row">
 								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3><a href="#">Дан старт конкурсу детских писем «Я хочу в Артек»</a></h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
+									<form class="form-send lk-form" data-toggle="validator"  action="hendler.php" method="post" role="form" data-form="send">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="city">Город</label>
+													<input type="text" data-mask="city" name="city" id="city" class="form-control my-input 	city" placeholder="г. Москва" required/>
+													<div class="help-block with-errors"></div>
+												</div>
 											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="street">Улица</label>
+													<input type="text" data-mask="street" name="street" id="street" class="form-control my-input 	street" placeholder="ул. Гвардейская, д. 1" required/>
+													<div class="help-block with-errors"></div>
+												</div>
 											</div>
 										</div>
-									</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group">
+													<label for="home">Дом</label>
+													<input type="text" data-mask="home" name="home" id="home" class="form-control my-input 	home" placeholder="2, корп. 1" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group">
+													<label for="room">Квартира</label>
+													<input type="text" data-mask="room" name="room" id="room" class="form-control my-input 	room" placeholder="56" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-4 col-md-4">
+												<div class="form-group">
+													<label for="phone">Телефон</label>
+													<input type="phone" data-mask="phone" name="phone" id="phone" class="form-control my-input 	phone" placeholder="+7 964 234-56-77" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<div class="form-group">
+													<label for="email">Электронный адрес</label>
+													<input type="email" data-mask="email" name="email" id="email" class="form-control my-input 	email" placeholder="yapoiy@mail.ru" required/>
+													<div class="help-block with-errors"></div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 col-md-6">
+												<label for="" style="opacity:0">adfasdf</label>
+												<p class="request">Вы можете подставить контакты из вашего профиля: <span><a href="#">г. Москва, Большой Каретный пер., 20, строение 1.</a></span></p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-md-12">
+												<div class="price-info">
+													<div><p class="total">3 товара на сумму <span>1 390 Р</span></p></div>
+													<div class="btn-inline">
+														<div>
+															<button class="btn btn-yellow more-padding">Далее</button>
+														</div>
+														<div>			
+															<p>К заполнению<br/> платёжной<br/> информации</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-md-12 text-right">
+												<img src="assets/img/content/shop-checkout-cards.png" alt="">
+											</div>
+										</div>
+									</form>
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-12 col-md-4 col-sm-4">
+						<div class="col-xs-12 col-md-3 col-sm-3">
 							<div class="row">
 								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3><a href="#">Дан старт конкурсу детских писем «Я хочу в Артек»</a></h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
-										</div>
+									<div class="abuot-delivery">
+										<h3>Кратко об условиях оплаты и доставки</h3>
+										<p>Основная стадия проведения рыночного исследования, согласно Ф.Котлеру, спонтанно тормозит традиционный канал.</p>
+										<p>Партисипативное планирование, конечно, стабилизирует общественный бренд. План размещения концентрирует имидж.</p>
+										<a href="#">Читать подробнее</a>
+										<p>Вы можете указать свой адрес в <a href="#">личном кабинете</a>. Так вам больше не понадобится вводить его при каждой покупке.</p>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-4 col-sm-4">
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3><a href="#">Дан старт конкурсу детских писем «Я хочу в Артек»</a></h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12 col-md-4 col-sm-4">
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3><a href="#">Дан старт конкурсу детских писем «Я хочу в Артек»</a></h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-4 col-sm-4">
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3><a href="#">Дан старт конкурсу детских писем «Я хочу в Артек»</a></h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-12 col-md-4 col-sm-4">
-							<div class="row">
-								<div class="col-xs-12 col-md-12 col-sm-12">
-									<div class="item-preview && yellow">
-										<div class="item-preview-header"><img src="assets/img/content/item-1.jpg" alt=""></div>
-										<div class="item-preview-content">
-											<h3><a href="#">Дан старт конкурсу детских писем «Я хочу в Артек»</a></h3>
-											<p>Народный артист РФ Николай Басков в скором времени займется музыкальным образованием студентов Московского педагогического государственного университета. Говорится на сайте МПГУ.</p>
-										</div>
-										<div class="item-preview-footer my-flex">
-											<div>
-												<a href="#">
-													<i class="my-icon heart"></i>
-													<span>23</span>
-												</a>
-												<a href="#">
-													<i class="my-icon eye"></i>
-													<span>423</span>
-												</a>
-												<a href="#">
-													<i class="my-icon share"></i>
-												</a>
-											</div>
-											<div>
-												<p class="item-preview-date">19 декабря, 2016</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-12 col-md-12 col-sm-12">
-							<div class="paggination-wrap text-center">
-								<p class="paggination-title">Страницы</p>
-								<ul class="paggination-list">
-									<li class="active"><a href="">1</a></li>
-									<li><a href="">2</a></li>
-									<li><a href="">3</a></li>
-									<li><a href="">4</a></li>
-									<li><a href="">...</a></li>
-								</ul>
 							</div>
 						</div>
 					</div>
