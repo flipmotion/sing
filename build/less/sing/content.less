@@ -159,6 +159,9 @@
 	}
 
 	&-preview {
+		&.margin {
+			margin-bottom: 20px;
+		}
 		.owl-controls {
 			display: none;
 		}
@@ -271,6 +274,27 @@
 			position: absolute;
 			background: rgba(255,255,255,.5);
 			border: 3px solid @brand-yellow;
+		}
+	}
+	&.photogallary {
+		position: static;
+		padding: 0;
+		display: block;
+		.owl-thumb-item {
+			display: inline-block;
+			margin-right: 15px;
+			margin-bottom: 20px;
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+			img {
+				width: 120px;
+			}
+			&.active {
+				&:after {
+					border: 8px solid @brand-yellow;
+				}
+			}
 		}
 	}
 }

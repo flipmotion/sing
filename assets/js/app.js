@@ -22,6 +22,7 @@ $(document).ready(function () {
 	var owlMusicPreview = $('[data-item="slider-music"]');
 	var owlMusicPreview2 = $('[data-item="slider-music-2"]');
 	var owlMusicPreview3 = $('[data-item="slider-music-3"]');
+	var owl2 = $('[data-slider="thumbs"]');
 
 	owl.owlCarousel(_defineProperty({
 		loop: true,
@@ -79,6 +80,7 @@ $(document).ready(function () {
 		autoplay: true,
 		navText: ["<i class='my-arrow-left'></i>", "<i class='my-arrow-right'></i>"]
 	}, 'dots', true));
+
 	$('[data-item="item-preview-navigation-slider-next"]').click(function () {
 		owlPreviewSmall.trigger('next.owl.carousel');
 	});
@@ -97,7 +99,14 @@ $(document).ready(function () {
 		thumbContainerClass: 'owl-thumbs',
 		thumbItemClass: 'owl-thumb-item'
 	});
-
+	owl2.owlCarousel({
+		loop: true,
+		items: 1,
+		navText: ["<i class='my-icon left-arr-3'></i>", "<i class='my-icon right-arr-3'></i>"],
+		nav: true,
+		thumbs: true,
+		thumbsPrerendered: true
+	});
 	var headerH = $('.header').height();
 	var sliderH = $('.Slider-main').height();
 
