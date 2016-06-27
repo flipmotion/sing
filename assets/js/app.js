@@ -24,6 +24,14 @@ $(document).ready(function () {
 	var owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	var owl2 = $('[data-slider="thumbs"]');
 
+	$('[data-item="navigation"] li').on('click', function (e) {
+		e.preventDefault();
+		var myowl = $(this).parents('.item-preview').find(owlPreviewSmall);
+		var myin = this.getAttribute('data-index');
+		myowl.trigger('to.owl.carousel', myin);
+		//to.owl.carousel
+	});
+
 	owl.owlCarousel(_defineProperty({
 		loop: true,
 		margin: 0,
@@ -31,10 +39,11 @@ $(document).ready(function () {
 		dots: true,
 		items: 1,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay: true,
 		navText: ["<i class='my-arrow-left'></i>", "<i class='my-arrow-right'></i>"]
 	}, 'dots', true));
+
 	owlMusicPreview.owlCarousel(_defineProperty({
 		loop: true,
 		margin: 30,
@@ -42,10 +51,11 @@ $(document).ready(function () {
 		dots: true,
 		items: 4,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay: true,
 		navText: ["<i class='my-icon left-arr-2'></i>", "<i class='my-icon right-arr-2'></i>"]
 	}, 'dots', true));
+
 	owlMusicPreview3.owlCarousel(_defineProperty({
 		loop: true,
 		margin: 20,
@@ -53,10 +63,11 @@ $(document).ready(function () {
 		dots: true,
 		items: 9,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay: true,
 		navText: ["<i class='my-icon left-arr-2'></i>", "<i class='my-icon right-arr-2'></i>"]
 	}, 'dots', true));
+
 	owlMusicPreview2.owlCarousel(_defineProperty({
 		loop: true,
 		margin: 10,
@@ -64,7 +75,7 @@ $(document).ready(function () {
 		dots: true,
 		items: 6,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay: true,
 		navText: ["<i class='my-icon left-arr-2'></i>", "<i class='my-icon right-arr-2'></i>"]
 	}, 'dots', true));
@@ -76,7 +87,7 @@ $(document).ready(function () {
 		dots: true,
 		items: 1,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay: true,
 		navText: ["<i class='my-arrow-left'></i>", "<i class='my-arrow-right'></i>"]
 	}, 'dots', true));
@@ -94,19 +105,27 @@ $(document).ready(function () {
 		items: 1,
 		navText: ["<i class='my-icon left-arr-3'></i>", "<i class='my-icon right-arr-3'></i>"],
 		nav: true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 3000,
+		autoplay: true,
 		thumbs: true,
 		thumbImage: true,
 		thumbContainerClass: 'owl-thumbs',
 		thumbItemClass: 'owl-thumb-item'
 	});
+
 	owl2.owlCarousel({
 		loop: true,
 		items: 1,
 		navText: ["<i class='my-icon left-arr-3'></i>", "<i class='my-icon right-arr-3'></i>"],
 		nav: true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 3000,
+		autoplay: true,
 		thumbs: true,
 		thumbsPrerendered: true
 	});
+
 	var headerH = $('.header').height();
 	var sliderH = $('.Slider-main').height();
 
@@ -124,48 +143,265 @@ $(document).ready(function () {
 	var btn = $('[data-item="menu"]');
 	var closeMenu = $('[data-item="menu-close"]');
 	var Menu = document.querySelector('.Menu');
+
 	btn.on('click', function (e) {
 		$('html').toggleClass('open');
 		var offsetHeader = window.innerHeight - Menu.getBoundingClientRect().top;
 		console.log(Menu.getBoundingClientRect().top);
 		Menu.style.height = offsetHeader + 'px';
 	});
+
 	closeMenu.on('click', function (e) {
 		$('html').removeClass('open');
 	});
+
+	/*focus input-group-addon END*/
+
+	/*Login */
+	var Login = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			err: {
+				container: '.error-block'
+			},
+			fields: {
+				userMail: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						emailAddress: {
+							message: 'Это не похоже на e-mail!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						}
+					}
+				}
+			}
+		},
+
+		initialize: function initialize() {
+			this.Validation('[data-form="Login"]');
+		},
+		Validation: function Validation(form) {
+			/*$(form).on('init.field.fv', function(e, data) {
+   })*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*Login END*/
+
+	/*Registration*/
+	var Registration = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				userMail: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						emailAddress: {
+							message: 'Это не похоже на e-mail!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						}
+					}
+				},
+				userPassword: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						stringLength: {
+							min: 6,
+							message: 'Длина пароля должна быть более 6 символов!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				userPasswordConfirm: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						identical: {
+							field: 'userPassword',
+							message: 'Ваши пароли не совпадают!'
+						},
+						blank: {}
+					}
+				}
+			}
+		},
+
+		initialize: function initialize() {
+			this.Validation('[data-form="registration"]');
+		},
+		Validation: function Validation(form) {
+			/*$(form).on('init.field.fv', function(e, data) {
+   })*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*Registration END*/
+
+	/*HelpWithPassword */
+	var HelpWithPassword = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				userMail: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						emailAddress: {
+							message: 'Это не похоже на e-mail!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						}
+					}
+				}
+			}
+		},
+
+		initialize: function initialize() {
+			this.Validation('[data-form="HelpWithPassword"]');
+		},
+
+		Validation: function Validation(form) {
+			/*$(form).on('init.field.fv', function(e, data) {
+   })*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*HelpWithPassword END*/
+
+	/*NewPassword*/
+	var NewPassword = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				userPassword: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						stringLength: {
+							min: 6,
+							message: 'Длина пароля должна быть более 6 символов!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				userPasswordConfirm: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						identical: {
+							field: 'userPassword',
+							message: 'Ваши пароли не совпадают!'
+						},
+						blank: {}
+					}
+				}
+			}
+		},
+
+		initialize: function initialize() {
+			this.Validation('[data-form="NewPassword"]');
+		},
+		Validation: function Validation(form) {
+			/*$(form).on('init.field.fv', function(e, data) {
+   })*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*NewPassword END*/
+
+	/*TogglePassword*/
+	var TogglePassword = {
+
+		initialize: function initialize() {
+			this.chengeType();
+			this.toggleGlass();
+		},
+		toggleGlass: function toggleGlass() {
+			$('.toggle-password').on('click', function (e) {
+				$(this).toggleClass('on off');
+			});
+		},
+
+		chengeType: function chengeType() {
+			$('.toggle-password').on('click', function (e) {
+				var input = $(this).parent().find('input'),
+				    checkType = input.attr('type');
+
+				if (checkType === 'password') {
+					input.attr('type', 'text');
+				} else {
+					input.attr('type', 'password');
+				}
+			});
+		}
+	};
+	/*TogglePassword END*/
+
+	/*all forms init*/
+	HelpWithPassword.initialize();
+	NewPassword.initialize();
+	Login.initialize();
+	Registration.initialize();
+	TogglePassword.initialize();
+	/*all forms init END*/
 });
 /*player*/
-var playlist = [{
+/*var playlist = [
+{
 	title: 'Трек 0',
 	description: 'Попкорн',
 	src: ['mp3/track0.mp3', 'mp3/track0.mp3'],
 	time: '1:00'
-}, {
+},
+{
 	title: 'Blondie',
 	description: 'Call me',
 	src: ['mp3/Blondie_-_Call_me.mp3', 'Blondie_-_Call_me.ogg'],
 	time: '3:31'
-}, {
+},
+{
 	title: 'Трек 1',
 	description: 'Описание трека 1',
 	src: ['mp3/track1.mp3', 'mp3/track1.mp3'],
 	time: '2:00'
-}, {
+},
+{
 	title: 'Трек 2',
 	description: 'Описание трека 2',
 	src: ['mp3/track2.mp3', 'mp3/track2.mp3'],
 	time: '3:00'
-}, {
+},
+{
 	title: 'Трек 3',
 	description: 'Описание трека 3',
 	src: ['mp3/track3.mp3', 'mp3/track3.mp3'],
 	time: '4:00'
-}];
+}
+];
 
 var currentTrack = 0;
 
 function setTrack(id, play) {
-	if (play == undefined) play = true;
+	if (play == undefined)
+		play = true;
 
 	$('.player audio source').remove();
 	for (var i = 0; i < playlist[id].src.length; i++) {
@@ -190,106 +426,111 @@ function initPlayer() {
 	setTrack(0, false);
 }
 
+
 $(document).ready(function () {
 	initPlayer();
 
-	//Смещение прогресс-бара проигрывания песни
-	$('.player audio').on('timeupdate', function () {
-		width = this.currentTime / this.duration * 100;
-		$(this).parents('.player').find('.timeline').css('width', width + '%');
-	});
+    //Смещение прогресс-бара проигрывания песни
+    $('.player audio').on('timeupdate', function () {
+    	width = this.currentTime / this.duration * 100;
+    	$(this).parents('.player').find('.timeline').css('width', width + '%')
+    });
 
-	//Добавляем класс при проигрывании
-	$('.player audio').on('play', function () {
-		$('.player audio').removeClass('playing');
-		$(this).addClass('playing');
-	});
+    //Добавляем класс при проигрывании
+    $('.player audio').on('play', function () {
+    	$('.player audio').removeClass('playing');
+    	$(this).addClass('playing');
+    });
 
-	$('.player audio').on('ended', function () {
-		console.log('ENDED');
-		$('.player .next').trigger('click');
-	});
+    $('.player audio').on('ended', function () {
+    	console.log('ENDED');
+    	$('.player .next').trigger('click');
+    });
 
-	//Play/Pause
-	$('.player .play').click(function () {
-		if ($('.player audio').hasClass('playing')) {
-			$('.player audio').trigger('pause');
-			$('.player audio').removeClass('playing');
-		} else {
-			$('.player audio').trigger('play');
-			$('.player audio').addClass('playing');
-		}
-	});
+    //Play/Pause
+    $('.player .play').click(function () {
+    	if ($('.player audio').hasClass('playing')) {
+    		$('.player audio').trigger('pause');
+    		$('.player audio').removeClass('playing');
+    	} else {
+    		$('.player audio').trigger('play');
+    		$('.player audio').addClass('playing');
+    	}
+    });
 
-	//Next button
-	$('.player .next').click(function () {
-		if (currentTrack < playlist.length - 1) {
-			currentTrack++;
-			setTrack(currentTrack);
-		}
-	});
+    //Next button
+    $('.player .next').click(function () {
+    	if (currentTrack < (playlist.length - 1)) {
+    		currentTrack++;
+    		setTrack(currentTrack);
+    	}
+    });
 
-	//Prev button
-	$('.player .prev').click(function () {
-		if (currentTrack > 0) {
-			currentTrack--;
-			setTrack(currentTrack);
-		}
-	});
 
-	//Клик по треку из списка
-	$('.player .track').click(function () {
-		setTrack($(this).index());
-	});
+    //Prev button
+    $('.player .prev').click(function () {
+    	if (currentTrack > 0) {
+    		currentTrack--;
+    		setTrack(currentTrack);
+    	}
+    });
 
-	//Клик на кнопке меню плеера
-	$('.player .button').click(function () {
-		$(this).toggleClass('open');
-		$('.player .playlist').slideToggle(300);
-	});
+    //Клик по треку из списка
+    $('.player .track').click(function () {
+    	setTrack($(this).index());
+    });
 
-	var closeTimeout = null;
+    //Клик на кнопке меню плеера
+    $('.player .button').click(function () {
+    	$(this).toggleClass('open');
+    	$('.player .playlist').slideToggle(300);
+    });
 
-	$('.player').mouseenter(function () {
-		if (!$(this).hasClass('open')) {
-			playerOpen();
-		}
 
-		$('.player').addClass('open');
-		clearTimeout(closeTimeout);
-	});
+    var closeTimeout = null;
 
-	$('.player').mouseleave(function () {
-		closeTimeout = setTimeout(function () {
-			playerClose();
-		}, 500);
-	});
+    $('.player').mouseenter(function () {
+    	if (!$(this).hasClass('open')) {
+    		playerOpen();
+    	}
+
+    	$('.player').addClass('open');
+    	clearTimeout(closeTimeout);
+    });
+
+    $('.player').mouseleave(function () {
+    	closeTimeout = setTimeout(function () {
+    		playerClose();
+    	}, 500);
+    });
 });
 
 function playerOpen() {
-	$('.player').animate({ width: '308px' }, 500, function () {
+	$('.player').animate({width: '308px'}, 500, function () {
 		$('.player .info, .player .button').fadeIn();
 	});
-	$('.player .track-line, .player .timeline').animate({ height: '5px' }, 500);
+	$('.player .track-line, .player .timeline').animate({height: '5px'}, 500);
 }
 
 function playerClose() {
 	$('.player .playlist').slideUp();
 	$('.player .button').removeClass('open');
 	$('.player .info, .player .button').fadeOut(function () {
-		$('.player').animate({ width: '98px' }, 500);
-		$('.player .track-line, .player .timeline').animate({ height: '53px' }, 500, function () {
+		$('.player').animate({width: '98px'}, 500);
+		$('.player .track-line, .player .timeline').animate({height: '53px'}, 500, function () {
 			$('.player').removeClass('open');
 		});
 	});
 }
 
+
 //Custom scrollbar
 (function ($) {
 	$(window).load(function () {
-		$(".playlist").mCustomScrollbar({});
+		$(".playlist").mCustomScrollbar({
+		});
 	});
-})(jQuery);
+})(jQuery);*/
 
 //file
 $(document).ready(function () {

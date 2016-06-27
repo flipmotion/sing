@@ -20,6 +20,10 @@
 				}
 				a {
 					font-weight: 300;
+					color: #078cd1;
+					&:hover,&:focus {
+						color: #47b8f3;
+					}
 					span {
 						display: inline-block;
 						vertical-align: middle;
@@ -34,6 +38,9 @@
 			.social {
 				li {
 					padding: 0 15px;
+					a:hover,&:focus {
+						opacity: .5;
+					}
 				}
 			}
 			.all {
@@ -59,7 +66,8 @@
 					border-bottom: 1px solid #078cd1;
 					&:hover,&:focus {
 						text-decoration: none;
-						border-color: transparent;
+						color: #47b8f3;
+						border-color: #47b8f3;
 					}
 				}
 			}
@@ -110,6 +118,7 @@
 				margin: 0;
 				color: #353645;
 				justify-content: space-between;
+				//justify-content: flex-start;
 				li {
 					padding: 0 5px;
 				}
@@ -134,6 +143,7 @@
 					font-size: 15px;
 					background: rgba(255,255,255,.5);
 					height: 34px;
+					padding-right: 0;
 					&::-webkit-input-placeholder {color:#c8bb00;}
 					&::-moz-placeholder          {color:#c8bb00;}/* Firefox 19+ */
 					&:-moz-placeholder           {color:#c8bb00;}/* Firefox 18- */
@@ -147,6 +157,11 @@
 					outline: none;
 					height: 34px;
 					margin-left: 0;
+					&:hover,&:focus {
+						i {
+							opacity: .5;
+						}
+					}
 				}
 			}
 		}

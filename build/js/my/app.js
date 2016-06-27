@@ -12,7 +12,15 @@ $(document).ready(function(){
 	let owlMusicPreview2 = $('[data-item="slider-music-2"]');
 	let owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	let owl2 = $('[data-slider="thumbs"]');
-	
+
+	$('[data-item="navigation"] li').on('click', function(e){
+		e.preventDefault();
+		var myowl = $(this).parents('.item-preview').find(owlPreviewSmall);
+		var myin = this.getAttribute('data-index');
+		myowl.trigger('to.owl.carousel', myin);
+		//to.owl.carousel
+	});
+
 	owl.owlCarousel({
 		loop:true,
 		margin:0,
@@ -20,7 +28,7 @@ $(document).ready(function(){
 		dots:true,
 		items:1,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay:true,
 		navText: [
 		"<i class='my-arrow-left'></i>", 
@@ -28,6 +36,7 @@ $(document).ready(function(){
 		],
 		dots: true
 	});
+
 	owlMusicPreview.owlCarousel({
 		loop:true,
 		margin:30,
@@ -35,7 +44,7 @@ $(document).ready(function(){
 		dots:true,
 		items:4,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay:true,
 		navText: [
 		"<i class='my-icon left-arr-2'></i>", 
@@ -43,6 +52,7 @@ $(document).ready(function(){
 		],
 		dots: true
 	});
+
 	owlMusicPreview3.owlCarousel({
 		loop:true,
 		margin:20,
@@ -50,7 +60,7 @@ $(document).ready(function(){
 		dots:true,
 		items:9,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay:true,
 		navText: [
 		"<i class='my-icon left-arr-2'></i>", 
@@ -58,6 +68,7 @@ $(document).ready(function(){
 		],
 		dots: true
 	});
+
 	owlMusicPreview2.owlCarousel({
 		loop:true,
 		margin:10,
@@ -65,7 +76,7 @@ $(document).ready(function(){
 		dots:true,
 		items:6,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay:true,
 		navText: [
 		"<i class='my-icon left-arr-2'></i>", 
@@ -81,7 +92,7 @@ $(document).ready(function(){
 		dots:true,
 		items:1,
 		autoplayHoverPause: true,
-		autoplayTimeout: 5000,
+		autoplayTimeout: 3000,
 		autoplay:true,
 		navText: [
 		"<i class='my-arrow-left'></i>", 
@@ -89,7 +100,6 @@ $(document).ready(function(){
 		],
 		dots: true
 	});
-	
 
 	$('[data-item="item-preview-navigation-slider-next"]').click(function() {
 		owlPreviewSmall.trigger('next.owl.carousel');
@@ -107,11 +117,15 @@ $(document).ready(function(){
 		"<i class='my-icon right-arr-3'></i>"
 		],
 		nav:true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 3000,
+		autoplay:true,
 		thumbs: true,
 		thumbImage: true,
 		thumbContainerClass: 'owl-thumbs',
 		thumbItemClass: 'owl-thumb-item'
 	});
+
 	owl2.owlCarousel({
 		loop: true,
 		items: 1,
@@ -120,9 +134,13 @@ $(document).ready(function(){
 		"<i class='my-icon right-arr-3'></i>"
 		],
 		nav:true,
+		autoplayHoverPause: true,
+		autoplayTimeout: 3000,
+		autoplay:true,
 		thumbs: true,
 		thumbsPrerendered: true
 	});
+
 	var headerH = $('.header').height();
 	var sliderH = $('.Slider-main').height();
 
@@ -140,18 +158,231 @@ $(document).ready(function(){
 	var btn = $('[data-item="menu"]');
 	var closeMenu = $('[data-item="menu-close"]');
 	var Menu = document.querySelector('.Menu');
+
 	btn.on('click',function(e){
 		$('html').toggleClass('open');
 		var offsetHeader = window.innerHeight - Menu.getBoundingClientRect().top;
 		console.log(Menu.getBoundingClientRect().top);
 		Menu.style.height = offsetHeader + 'px';
 	});
+
 	closeMenu.on('click',function(e){
 		$('html').removeClass('open');
 	});
+
+	/*focus input-group-addon END*/
+
+	/*Login */
+	var Login = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			err: {
+				container: '.error-block'
+			},
+			fields: {
+				userMail: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						emailAddress: {
+							message: 'Это не похоже на e-mail!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						}
+					}
+				}
+			}
+		},
+
+		initialize : function () {
+			this.Validation('[data-form="Login"]');
+		},
+		Validation:function(form){
+			/*$(form).on('init.field.fv', function(e, data) {
+			})*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*Login END*/
+
+	/*Registration*/
+	var Registration = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				userMail: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						emailAddress: {
+							message: 'Это не похоже на e-mail!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						}
+					}
+				},
+				userPassword: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						stringLength: {
+							min: 6,
+							message: 'Длина пароля должна быть более 6 символов!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				userPasswordConfirm: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						identical: {
+							field: 'userPassword',
+							message: 'Ваши пароли не совпадают!'
+						},
+						blank: {}
+					}
+				}
+			}
+		},
+
+		initialize : function () {
+			this.Validation('[data-form="registration"]');
+		},
+		Validation:function(form){
+			/*$(form).on('init.field.fv', function(e, data) {
+			})*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*Registration END*/
+
+	/*HelpWithPassword */
+	var HelpWithPassword = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				userMail: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						emailAddress: {
+							message: 'Это не похоже на e-mail!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						}
+					}
+				}
+			}
+		},
+
+		initialize : function () {
+			this.Validation('[data-form="HelpWithPassword"]');
+		},
+
+		Validation:function(form){
+			/*$(form).on('init.field.fv', function(e, data) {
+			})*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*HelpWithPassword END*/
+
+	/*NewPassword*/
+	var NewPassword = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				userPassword: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						stringLength: {
+							min: 6,
+							message: 'Длина пароля должна быть более 6 символов!'
+						},
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				userPasswordConfirm: {
+					trigger: 'blur keyup focus',
+
+					validators: {
+						identical: {
+							field: 'userPassword',
+							message: 'Ваши пароли не совпадают!'
+						},
+						blank: {}
+					}
+				}
+			}
+		},
+
+		initialize : function () {
+			this.Validation('[data-form="NewPassword"]');
+		},
+		Validation:function(form){
+			/*$(form).on('init.field.fv', function(e, data) {
+			})*/
+			$(form).formValidation(this.ValidationOptions);
+		}
+	};
+	/*NewPassword END*/
+
+	/*TogglePassword*/
+	var TogglePassword = {
+
+		initialize: function () {
+			this.chengeType();
+			this.toggleGlass();
+		},
+		toggleGlass: function(){
+			$('.toggle-password').on('click', function(e){
+				$(this).toggleClass('on off');
+			});
+		},
+
+		chengeType: function () {
+			$('.toggle-password').on('click', function(e){
+				var input = $(this).parent().find('input'),
+				checkType = input.attr('type');
+
+				if(checkType === 'password') {
+					input.attr('type', 'text');
+				}
+				else {
+					input.attr('type', 'password');
+				}
+
+			});
+		}
+	}
+	/*TogglePassword END*/
+
+	/*all forms init*/
+	HelpWithPassword.initialize();
+	NewPassword.initialize();
+	Login.initialize();
+	Registration.initialize();
+	TogglePassword.initialize();
+	/*all forms init END*/
+	
 });
 /*player*/
-var playlist = [
+/*var playlist = [
 {
 	title: 'Трек 0',
 	description: 'Попкорн',
@@ -317,7 +548,7 @@ function playerClose() {
 		$(".playlist").mCustomScrollbar({
 		});
 	});
-})(jQuery);
+})(jQuery);*/
 
 //file 
 $(document).ready(function () {
@@ -369,4 +600,5 @@ $(document).ready(function () {
 		$('div.photo-upload-container.one').html(' ');
 		imagesPreview(this, 'div.photo-upload-container.one');
 	});
+
 });
