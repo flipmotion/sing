@@ -190,7 +190,8 @@ $(document).ready(function(){
 						},
 						notEmpty: {
 							message: 'Это поле не может быть пустым!'
-						}
+						},
+						blank: {}
 					}
 				}
 			}
@@ -200,9 +201,34 @@ $(document).ready(function(){
 			this.Validation('[data-form="Login"]');
 		},
 		Validation:function(form){
-			/*$(form).on('init.field.fv', function(e, data) {
-			})*/
-			$(form).formValidation(this.ValidationOptions);
+			$(form).formValidation(this.ValidationOptions).on('success.form.fv', function(e) {
+				e.preventDefault();
+				var $form = $(e.target),
+				fv = $form.data('formValidation');
+				// For demonstrating purpose, the url is generated randomly
+				// to get different response each time
+				// In fact, it should be /path/to/your/back-end/
+				var url = '/include/auth.php';
+				$.ajax({
+					url: url,
+					data: $form.serialize(),
+					dataType: 'json',
+					method: 'post'
+				}).success(function(response) {
+				// If there is error returned from server
+				if (response.result === 'error') {
+					for (var field in response.fields) {
+						fv
+								// Show the custom message
+								.updateMessage(field, 'blank', response.fields[field])
+								// Set the field as invalid
+								.updateStatus(field, 'INVALID', 'blank');
+							}
+						} else {
+						window.location.replace("http://get-lp.ru/lk/");
+					}
+				});
+			});
 		}
 	};
 	/*Login END*/
@@ -222,7 +248,8 @@ $(document).ready(function(){
 						},
 						notEmpty: {
 							message: 'Это поле не может быть пустым!'
-						}
+						},
+						blank: {}
 					}
 				},
 				userPassword: {
@@ -259,7 +286,37 @@ $(document).ready(function(){
 		Validation:function(form){
 			/*$(form).on('init.field.fv', function(e, data) {
 			})*/
-			$(form).formValidation(this.ValidationOptions);
+			$(form).formValidation(this.ValidationOptions).on('success.form.fv', function(e) {
+				e.preventDefault();
+				var $form = $(e.target),
+				fv = $form.data('formValidation');
+				// For demonstrating purpose, the url is generated randomly
+				// to get different response each time
+				// In fact, it should be /path/to/your/back-end/
+				var url = '/include/register.php';
+
+				$.ajax({
+					url: url,
+					data: $form.serialize(),
+					dataType: 'json',
+					method: 'post'
+				}).success(function(response) {
+				// If there is error returned from server
+				if (response.result === 'error') {
+					for (var field in response.fields) {
+						fv
+								// Show the custom message
+								.updateMessage(field, 'blank', response.fields[field])
+								// Set the field as invalid
+								.updateStatus(field, 'INVALID', 'blank');
+							}
+						} else {
+							$('#registration').modal('hide');
+							console.log('success');
+							$('#thx').modal('show');
+						}
+					});
+			});
 		}
 	};
 	/*Registration END*/
@@ -279,7 +336,8 @@ $(document).ready(function(){
 						},
 						notEmpty: {
 							message: 'Это поле не может быть пустым!'
-						}
+						},
+						blank: {}
 					}
 				}
 			}
@@ -292,7 +350,35 @@ $(document).ready(function(){
 		Validation:function(form){
 			/*$(form).on('init.field.fv', function(e, data) {
 			})*/
-			$(form).formValidation(this.ValidationOptions);
+			$(form).formValidation(this.ValidationOptions).on('success.form.fv', function(e) {
+				e.preventDefault();
+				var $form = $(e.target),
+				fv = $form.data('formValidation');
+				// For demonstrating purpose, the url is generated randomly
+				// to get different response each time
+				// In fact, it should be /path/to/your/back-end/
+				var url = ['response.json'];
+				$.ajax({
+					url: url,
+					data: $form.serialize(),
+					dataType: 'json',
+					method: 'post'
+				}).success(function(response) {
+				// If there is error returned from server
+				if (response.result === 'error') {
+					for (var field in response.fields) {
+						fv
+								// Show the custom message
+								.updateMessage(field, 'blank', response.fields[field])
+								// Set the field as invalid
+								.updateStatus(field, 'INVALID', 'blank');
+							}
+						} else {
+						// Do whatever you want here
+						// such as showing a modal ...
+					}
+				});
+			});
 		}
 	};
 	/*HelpWithPassword END*/
@@ -337,7 +423,35 @@ $(document).ready(function(){
 		Validation:function(form){
 			/*$(form).on('init.field.fv', function(e, data) {
 			})*/
-			$(form).formValidation(this.ValidationOptions);
+			$(form).formValidation(this.ValidationOptions).on('success.form.fv', function(e) {
+				e.preventDefault();
+				var $form = $(e.target),
+				fv = $form.data('formValidation');
+				// For demonstrating purpose, the url is generated randomly
+				// to get different response each time
+				// In fact, it should be /path/to/your/back-end/
+				var url = ['response.json'];
+				$.ajax({
+					url: url,
+					data: $form.serialize(),
+					dataType: 'json',
+					method: 'post'
+				}).success(function(response) {
+				// If there is error returned from server
+				if (response.result === 'error') {
+					for (var field in response.fields) {
+						fv
+								// Show the custom message
+								.updateMessage(field, 'blank', response.fields[field])
+								// Set the field as invalid
+								.updateStatus(field, 'INVALID', 'blank');
+							}
+						} else {
+						// Do whatever you want here
+						// such as showing a modal ...
+					}
+				});
+			});
 		}
 	};
 	/*NewPassword END*/
@@ -379,8 +493,56 @@ $(document).ready(function(){
 	Registration.initialize();
 	TogglePassword.initialize();
 	/*all forms init END*/
-	
+	if ($(".lk-form").length) {
+		LKFORM.init();
+
+	}
 });
+/*START LKFORM*/
+var LKFORM = {};
+LKFORM.init = function () {
+	this.formListner();
+}
+LKFORM.formListner = function () {
+	var formListner = {
+		defaults: {
+			Input: $(".lk-form input"),
+			userID: $('#userID')
+		},
+		blur: function () {
+			var InputName =  false;
+			var InputValue = false;
+			var Input = formListner.defaults.Input;
+			var UserID = this.defaults.userID.val();
+
+			Input.blur(function () {
+				InputName = this.name;
+				InputValue = this.value;
+				formListner.save(InputName,InputValue,UserID);
+			}).keypress(function (e) {
+				if (e.keyCode == 13) {
+					InputName = this.name;
+					InputValue = this.value;
+					formListner.save(InputName,InputValue,UserID);
+				}
+			});
+		},
+		save: function(param,param2,UserID){
+			$.ajax({
+				type: "POST",
+				url: "/include/account.php",
+				data:{name:param,value:param2,UserID:UserID},
+				success:function(){
+					console.log(UserID);
+				},
+				error:function(data){alert(data)}
+			});
+		}
+	}
+	formListner.blur();
+}
+
+/*END LKFORM*/
 /*player*/
 /*var playlist = [
 {

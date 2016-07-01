@@ -1,0 +1,6 @@
+{
+    "result": "error",
+    "fields": {
+        "userMail": "Ответ от JSON шибка в поле userMail"
+    }
+}
