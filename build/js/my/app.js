@@ -535,7 +535,7 @@ LKFORM.formListner = function () {
 				success:function(){
 					console.log(UserID);
 				},
-				error:function(data){alert(data)}
+				error:function(data){/*alert(data)*/}
 			});
 		}
 	}
