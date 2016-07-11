@@ -730,7 +730,7 @@ $(document).ready(function () {
 					setUp(placeToInsertImagePreview,file);
 				}
 				var list = $('.wrap-img').length;
-				$('.wrap-img').append('<div class="del"></div>');
+				$('.wrap-img').append('<div class="del"><span>&times;</span></div>');
 				var inputHidden = $($.parseHTML('<input type="hidden" class="hidden">')).attr('value', window.URL.createObjectURL(file));
 				$(inputHidden).appendTo('.wrap-img div');
 				$('.del').on('click',function(e){
