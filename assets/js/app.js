@@ -101,7 +101,7 @@ $(document).ready(function () {
 	});
 
 	owlPreview.owlCarousel({
-		loop: true,
+		loop: false,
 		items: 1,
 		navText: ["<i class='my-icon left-arr-3'></i>", "<i class='my-icon right-arr-3'></i>"],
 		nav: true,
@@ -112,6 +112,12 @@ $(document).ready(function () {
 		thumbImage: true,
 		thumbContainerClass: 'owl-thumbs',
 		thumbItemClass: 'owl-thumb-item'
+	});
+
+	$('.Slider-preview.horoscop').on('changed.owl.carousel', function (event) {
+		$(this).siblings('.Slider-prev-cont').removeClass('active');
+		var content = $(this).siblings('.Slider-prev-cont')[event.item.index];
+		$(content).addClass('active');
 	});
 
 	owl2.owlCarousel({

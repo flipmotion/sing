@@ -110,7 +110,7 @@ $(document).ready(function(){
 	})
 
 	owlPreview.owlCarousel({
-		loop: true,
+		loop: false,
 		items: 1,
 		navText: [
 		"<i class='my-icon left-arr-3'></i>", 
@@ -126,6 +126,12 @@ $(document).ready(function(){
 		thumbItemClass: 'owl-thumb-item'
 	});
 
+		$('.Slider-preview.horoscop').on('changed.owl.carousel', function(event) {
+			$(this).siblings('.Slider-prev-cont').removeClass('active');
+			var content = $(this).siblings('.Slider-prev-cont')[event.item.index];
+			$(content).addClass('active');
+		});
+		
 	owl2.owlCarousel({
 		loop: true,
 		items: 1,
@@ -225,9 +231,9 @@ $(document).ready(function(){
 								.updateStatus(field, 'INVALID', 'blank');
 							}
 						} else {
-						window.location.replace("http://get-lp.ru/lk/");
-					}
-				});
+							window.location.replace("http://get-lp.ru/lk/");
+						}
+					});
 			});
 		}
 	};
@@ -535,8 +541,8 @@ LKFORM.formListner = function () {
 				success:function(){
 					console.log(UserID);
 				},
-				error:function(data){/*alert(data)*/}
-			});
+			error:function(data){/*alert(data)*/}
+		});
 		}
 	}
 	formListner.blur();
