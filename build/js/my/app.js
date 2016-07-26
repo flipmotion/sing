@@ -1,6 +1,7 @@
 //use strict mode;
 'use strict';
 //owl import
+
 import owlCarousel from '../owl.carousel.min.js';
 import thumbs from '../owl.carousel2.thumbs.min.js';
 
@@ -12,6 +13,11 @@ $(document).ready(function(){
 	let owlMusicPreview2 = $('[data-item="slider-music-2"]');
 	let owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	let owl2 = $('[data-slider="thumbs"]');
+
+	$('[data-item="to-top"]').click(function() {
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+		return false;
+	});
 
 	$('[data-item="navigation"] li').on('click', function(e){
 		e.preventDefault();
@@ -27,14 +33,18 @@ $(document).ready(function(){
 		nav:true,
 		dots:true,
 		items:1,
-		autoplayHoverPause: true,
+		/*autoplayHoverPause: true,
 		autoplayTimeout: 3000,
-		autoplay:true,
+		autoplay:true,*/
 		navText: [
 		"<i class='my-arrow-left'></i>", 
 		"<i class='my-arrow-right'></i>"
 		],
 		dots: true
+	});
+	$(owl).on('click',function(){
+		owl.trigger('autoplay.stop.owl');
+		console.log('stoped autoplay');
 	});
 
 	owlMusicPreview.owlCarousel({
@@ -43,14 +53,19 @@ $(document).ready(function(){
 		nav:true,
 		dots:true,
 		items:4,
-		autoplayHoverPause: true,
+		/*autoplayHoverPause: true,
 		autoplayTimeout: 3000,
-		autoplay:true,
+		autoplay:true,*/
 		navText: [
 		"<i class='my-icon left-arr-2'></i>", 
 		"<i class='my-icon right-arr-2'></i>"
 		],
 		dots: true
+	});
+
+	$(owlMusicPreview).on('click',function(){
+		owlMusicPreview.trigger('stop.owl.autoplay');
+		console.log('stoped autoplay');
 	});
 
 	owlMusicPreview3.owlCarousel({
@@ -59,14 +74,19 @@ $(document).ready(function(){
 		nav:true,
 		dots:true,
 		items:9,
-		autoplayHoverPause: true,
+		/*autoplayHoverPause: true,
 		autoplayTimeout: 3000,
-		autoplay:true,
+		autoplay:true,*/
 		navText: [
 		"<i class='my-icon left-arr-2'></i>", 
 		"<i class='my-icon right-arr-2'></i>"
 		],
 		dots: true
+	});
+
+	$(owlMusicPreview3).on('click',function(){
+		owlMusicPreview3.trigger('stop.owl.autoplay');
+		console.log('stoped autoplay');
 	});
 
 	owlMusicPreview2.owlCarousel({
@@ -75,14 +95,19 @@ $(document).ready(function(){
 		nav:true,
 		dots:true,
 		items:6,
-		autoplayHoverPause: true,
+		/*autoplayHoverPause: true,
 		autoplayTimeout: 3000,
-		autoplay:true,
+		autoplay:true,*/
 		navText: [
 		"<i class='my-icon left-arr-2'></i>", 
 		"<i class='my-icon right-arr-2'></i>"
 		],
 		dots: true
+	});
+
+	$(owlMusicPreview2).on('click',function(){
+		owlMusicPreview2.trigger('stop.owl.autoplay');
+		console.log('stoped autoplay');
 	});
 
 	owlPreviewSmall.owlCarousel({
@@ -91,9 +116,9 @@ $(document).ready(function(){
 		nav:true,
 		dots:true,
 		items:1,
-		autoplayHoverPause: true,
-		autoplayTimeout: 3000,
-		autoplay:true,
+		/*autoplayHoverPause: true,
+		autoplayTimeout: 100,
+		autoplay:true,*/
 		navText: [
 		"<i class='my-arrow-left'></i>", 
 		"<i class='my-arrow-right'></i>"
@@ -101,15 +126,17 @@ $(document).ready(function(){
 		dots: true
 	});
 
-	$('[data-item="item-preview-navigation-slider-next"]').click(function() {
+	$('[data-item="item-preview-navigation-slider-next"]').on('click', function(){
 		owlPreviewSmall.trigger('next.owl.carousel');
-	})
+	});
+	
 
 	$('[data-item="item-preview-navigation-slider-prev"]').click(function() {
 		owlPreviewSmall.trigger('prev.owl.carousel');
-	})
+	});
 
-	owlPreview.owlCarousel({
+
+	$('.Slider-preview.horoscop').owlCarousel({
 		loop: false,
 		items: 1,
 		navText: [
@@ -117,21 +144,43 @@ $(document).ready(function(){
 		"<i class='my-icon right-arr-3'></i>"
 		],
 		nav:true,
-		autoplayHoverPause: true,
-		autoplayTimeout: 3000,
-		autoplay:true,
+		/*autoplay:true,
+		autoplayTimeout:3000,
+		autoplayHoverPause:false,*/
+		thumbs: true,
+		thumbImage: true,
+		thumbContainerClass: 'owl-thumbs',
+		thumbItemClass: 'owl-thumb-item'
+	});
+	owlPreview.owlCarousel({
+		loop: true,
+		items: 1,
+		navText: [
+		"<i class='my-icon left-arr-3'></i>", 
+		"<i class='my-icon right-arr-3'></i>"
+		],
+		nav:true,
+		/*autoplay:true,
+		autoplayTimeout:3000,
+		autoplayHoverPause:false,*/
 		thumbs: true,
 		thumbImage: true,
 		thumbContainerClass: 'owl-thumbs',
 		thumbItemClass: 'owl-thumb-item'
 	});
 
-		$('.Slider-preview.horoscop').on('changed.owl.carousel', function(event) {
-			$(this).siblings('.Slider-prev-cont').removeClass('active');
-			var content = $(this).siblings('.Slider-prev-cont')[event.item.index];
-			$(content).addClass('active');
-		});
-		
+	$(owlPreview).on('click',function(){
+		owlPreview.trigger('autoplay.stop.owl');
+		console.log('stoped autoplay');
+	});
+
+	
+	
+	$('.Slider-preview.horoscop').on('changed.owl.carousel', function(event) {
+		$(this).siblings('.Slider-prev-cont').removeClass('active');
+		var content = $(this).siblings('.Slider-prev-cont')[event.item.index];
+		$(content).addClass('active');
+	});
 	owl2.owlCarousel({
 		loop: true,
 		items: 1,
@@ -140,11 +189,16 @@ $(document).ready(function(){
 		"<i class='my-icon right-arr-3'></i>"
 		],
 		nav:true,
-		autoplayHoverPause: true,
+		/*autoplayHoverPause: true,
 		autoplayTimeout: 3000,
-		autoplay:true,
+		autoplay:true,*/
 		thumbs: true,
 		thumbsPrerendered: true
+	});
+
+	$(owl2).on('click',function(){
+		owl2.trigger('autoplay.stop.owl');
+		console.log('stoped autoplay');
 	});
 
 	var headerH = $('.header').height();
@@ -501,7 +555,14 @@ $(document).ready(function(){
 	/*all forms init END*/
 	if ($(".lk-form").length) {
 		LKFORM.init();
-
+	}
+	function NumberIn(event) {
+		console.log(event.charCode);
+		return (event.charCode >= 48 && event.charCode <= 57);
+	}
+	var numberInput = $('.input-num');
+	if(numberInput) {
+		numberInput.on('keypress', NumberIn);
 	}
 });
 /*START LKFORM*/
@@ -737,13 +798,12 @@ $(document).ready(function () {
 					$(this).parent('.wrap-img').remove();
 					var list = $('.wrap-img').length;
 					if(list <= 0) {
-						placeholdIt(placeToInsertImagePreview);
+						placeholdIt();
 					}
-					calc();
+					
 				});
-			}
-			else {
-				placeholdIt(placeToInsertImagePreview);
+			} else {
+				
 			}
 		}
 	};

@@ -683,7 +683,7 @@
 					justify-content: space-between;
 					font-size: 16px;
 					font-weight: 400;
-					color: #818181;
+					color: #515151;
 					line-height: 19px;
 					font-family: bitteritalic;
 
@@ -691,8 +691,9 @@
 				.name {
 					font-weight: 400;
 					font-style: italic;
-					color: #b1b1b1;
+					color: #a6a6a6;
 					margin-bottom: 70px;
+					font-size: 16px;
 				}
 				img {
 					margin-right: -10px;
@@ -788,6 +789,14 @@
 					}
 				}
 				h4 {
+					a {
+						color: #078cd1;
+						transition: .3s ease all;
+						&:hover,&:focus {
+							text-decoration: none;
+							color: #47b8f3;
+						}
+					}
 					font-weight: 300;
 					font-size: 16px;
 					text-transform: uppercase;
@@ -795,6 +804,14 @@
 				h3 {
 					font-size: 24px;
 					margin: 5px 0;
+					a {
+						color: #078cd1;
+						transition: .3s ease all;
+						&:hover,&:focus {
+							text-decoration: none;
+							color: #47b8f3;
+						}
+					}
 				}
 			}
 		}
@@ -912,6 +929,7 @@
 				line-height: 1;
 				margin: 0;
 				background: @brand-light-blue;
+
 			}
 		}
 		&-content {
@@ -943,7 +961,6 @@
 					}
 				}
 				>li {
-					
 					padding-top: 10px;
 					>ul {
 						list-style-type: disc;
@@ -955,17 +972,22 @@
 					}
 				}
 			}
+			p,span {
+				transition: .3s all ease-in-out;
+			}
 		}
 		&:hover span{
 			color: @brand-darken-blue;
 			&:hover {
-				text-decoration: underline;
+				text-decoration: none;
+				color: #47b8f3;
 			}
 		}
 		&:hover p{
 			color: @brand-darken-blue;
 			&:hover {
-				text-decoration: underline;
+				text-decoration: none;
+				color: #47b8f3;
 			}
 		}
 	}
@@ -1010,11 +1032,29 @@
 		}
 	}
 }
+.instagramm-icon {
+	margin-right: 10px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
 .custom-dropdown {
 	position: relative;
 	&.no-oAuth {
 		&>a {
 			color: #949494 !important;
+			
+		}
+	}
+	&.oAuth {
+		&>a {
+			color: #949494 !important;
+			&:hover,&:focus {
+				color: #078cd1 !important;
+				.my-icon.heart-normal {
+					background: url(../img/social/heart.png) center center no-repeat;
+				}
+			}
+			
 		}
 	}
 	&:hover,&:focus {
@@ -1034,9 +1074,9 @@
 		visibility: hidden;
 		transition: @transition;
 		position: absolute;
-		transform:translateY(0);
+		top:0px;
 		top: 100%;
-		left: 0;
+		transform:translateY(0px);
 		z-index: 1000;
 		padding: 12px 16px;
 		margin-left: -30px;
@@ -1085,6 +1125,7 @@
 			}
 			img {
 				margin-bottom: 0;
+				transform:scale(1) !important;
 			}
 		}
 		&.login {
@@ -1106,13 +1147,13 @@
 	&.date {
 		.custom-dropdown-menu {
 			margin-top: 10px;
-			width: 295px;
+			width: 285px;
 			right: -30px;
 			left: auto;
 			padding: 10px 10px;
 			li {
 				border: 2px solid transparent;
-				padding: 5px 7px 4px;
+				padding: 2px 6px 2px;
 				&.active {
 					border: 2px solid #fffa66;
 				}
@@ -1128,7 +1169,8 @@
 		}
 		&.small {
 			.custom-dropdown-menu {
-				width: 178px;
+				width: auto;
+				white-space: nowrap;
 			}
 		}
 	}
@@ -1312,7 +1354,7 @@
 		li {
 			display: inline-block;
 			list-style: none;
-			padding: 5px 9px;
+			padding: 2px 6px;
 			margin-right: 2px;
 			&.active {
 				border: 2px solid @brand-yellow;
@@ -1674,7 +1716,7 @@ html.open {
 	}
 	.load-file {
 		width: 120px;
-		height: 80px;
+		height: 82px;
 		border: 1px solid @brand-gray;
 		position: relative;
 		display: block;
@@ -1730,15 +1772,27 @@ html.open {
 				margin-top: 10px;
 				display: block;
 				font-size: 12px;
+				color: #078cd1;
+				transition: .3s ease all;
 				&.btn-table {
 					display: table;
 					margin: 0 auto;
-					border: 1px solid @brand-light-gray;
+					border: 1px solid #cecece;
 					border-radius: 6px;
+					color:#353645;
 					padding: 0 24px;
 					line-height: 39px;
 					font-size: 14px;
 					background-color: #fffa66;
+					transition: 0s ease all;
+					&:hover,&:focus {
+						color:#353645;
+						background: #fff719;
+					}
+				}
+				&:hover,&:focus {
+					color: #47b8f3;
+					text-decoration: none;
 				}
 			}
 			&:hover,&:focus {
@@ -1756,6 +1810,10 @@ html.open {
 			bottom: -10px;
 			width: 100%;
 			transition: .3s ease;
+			img {
+				width: auto;
+				max-width: 100%;
+			}
 		}
 		&:hover {
 			text-decoration: none;
@@ -1820,6 +1878,19 @@ html.open {
 				background-position: center center;
 				vertical-align: bottom;
 			}
+		}
+	}
+}
+.item-preview {
+	&.ant {
+		.item-preview-header {
+			padding: 20px 0px 0;
+			.preview {
+				margin-top: -20px;
+			}
+		}
+		.item-preview-content {
+			//padding-top: 30px;
 		}
 	}
 }
@@ -2010,6 +2081,9 @@ textarea {
 			}
 		}
 	}
+	div {
+		outline: none;
+	}
 }
 .m-top-0 {
 	margin-bottom: -6px;
@@ -2018,12 +2092,12 @@ textarea {
 	opacity: 0;
 }
 .photo-upload-container {
-	display: flex;
-	margin-left: -5px;
 	.wrap-img {
-		margin: 0 2.5px;
+		margin-right: 5px;
+		margin-bottom: 5px;
 		border: 1px solid #ccc;
 		position: relative;
+		display: inline-block;
 		.del {
 			position: absolute;
 			top:0;
@@ -2047,7 +2121,7 @@ textarea {
 			}
 		}
 		img {
-			width: 120px;
+			width: 100%;
 			height: 80px;
 		}
 	}
@@ -2056,7 +2130,7 @@ textarea {
 	}
 }
 .my-flex .load-file {
-	margin-left: 5px;
+	//margin-left: 5px;
 }
 .add-comment {
 	font-size: 12px;
@@ -2256,6 +2330,66 @@ textarea {
 	}
 }
 /*END shop-checkout*/
+/*shop-your-buy*/
+.your-buy {
+	&.item-preview {
+		border: 1px solid #cecece;
+		.row {
+			&.my-flex {
+				display: flex;
+				align-items: center;
+			}
+		}
+		.item-preview-header {
+			padding: 0 30px;
+		}
+		.item-preview-content {
+			a {
+				color: #078cd1;
+			}
+		}
+		.item-preview-footer {
+			&.my-flex {
+				justify-content: flex-start;
+				align-items: bottom;
+				&>div {
+					&:nth-child(1) {
+						a {
+							margin-right: 10px;
+						}
+					}
+					&:nth-child(2) {
+						a {
+							font-size: 14px;
+							color: #078cd1;
+							margin-right: 20px;
+						}
+					}
+					&:nth-child(3) {
+						.item-preview-date {
+							font-size: 16px;
+							color: #353645;
+							line-height: 18px;
+						}
+					}
+				}
+			}
+		}
+		.item-preview-subcontent {
+			padding: 45px 30px 0 0;
+			p {
+				font-size: 14px;
+				color: #353645;
+				margin-bottom: 8px;
+				span {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+/*END shop-your-buy*/
+
 /*in-section*/
 .in-section {
 	&.leftSideBar {
