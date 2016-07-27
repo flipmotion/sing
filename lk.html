@@ -155,13 +155,15 @@
 							</div>
 							<div class="row">
 								<div class="col-xs-12 col-md-12 col-sm-12">
-									<form class="form-send lk-form" data-toggle="validator"  action="hendler.php" method="post" role="form" data-form="send">
+									<form class="form-send lk-form"  action="hendler.php" method="post" role="form">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6 col-md-6">
 												<div class="form-group">
-													<label for="name">Ваши имя и фамилия</label>
-													<input type="text" data-mask="name" name="user" id="name" class="form-control my-input 	name" placeholder="Ариадна Константинопольская" required/>
-													<div class="help-block with-errors"></div>
+													<div class="flex">
+														<div><label for="name">Ваши имя и фамилия</label></div>
+														<div><div class="err-msg"></div><div class="valid-msg"></div></div>
+													</div>
+													<input type="text" value="Ариадна Константинопольская" data-mask="name" name="user" id="name" class="form-control my-input 	name" placeholder="Ариадна Константинопольская" required/>
 												</div>
 											</div>
 										</div>
@@ -173,53 +175,79 @@
 										<div class="row">
 											<div class="col-xs-12 col-sm-6 col-md-6">
 												<div class="form-group">
-													<label for="city">Город</label>
+													<div class="flex">
+														<div><label for="city">Город</label></div>
+														<div><div class="err-msg"></div><div class="valid-msg"></div></div>
+													</div>
+													
 													<input type="text" data-mask="city" name="city" id="city" class="form-control my-input 	city" placeholder="г. Москва" required/>
-													<div class="help-block with-errors"></div>
+													
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-6">
 												<div class="form-group">
-													<label for="street">Улица</label>
+													
+													<div class="flex">
+														<div><label for="street">Улица</label></div>
+														<div><div class="err-msg"></div><div class="valid-msg"></div></div>
+													</div>
 													<input type="text" data-mask="street" name="street" id="street" class="form-control my-input 	street" placeholder="ул. Гвардейская, д. 1" required/>
-													<div class="help-block with-errors"></div>
+													
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-xs-12 col-sm-4 col-md-4">
 												<div class="form-group">
-													<label for="home">Дом</label>
+													
+													<div class="flex">
+														<div><label for="home">Дом</label></div>
+														<div><div class="err-msg"></div><div class="valid-msg"></div></div>
+													</div>
 													<input type="text" data-mask="home" name="home" id="home" class="form-control my-input 	home" placeholder="2, корп. 1" required/>
-													<div class="help-block with-errors"></div>
+													
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-4 col-md-4">
 												<div class="form-group">
-													<label for="room">Квартира</label>
+													
+													<div class="flex">
+														<div><label for="room">Квартира</label></div>
+														<div><div class="err-msg"></div><div class="valid-msg"></div></div>
+													</div>
 													<input type="text" data-mask="room" name="room" id="room" class="form-control my-input 	room" placeholder="56" required/>
-													<div class="help-block with-errors"></div>
+													
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-4 col-md-4">
 												<div class="form-group">
-													<label for="phone">Телефон</label>
+													
+													<div class="flex">
+														<div><label for="phone">Телефон</label></div>
+														<div><div class="err-msg"></div><div class="valid-msg"></div></div>
+													</div>
 													<input type="phone" data-mask="phone" name="phone" id="phone" class="form-control my-input 	phone" placeholder="+7 964 234-56-77" required/>
-													<div class="help-block with-errors"></div>
+													
 												</div>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-xs-12 col-sm-6 col-md-6">
 												<div class="form-group">
-													<label for="email">Электронный адрес</label>
+													
+													<div class="flex">
+														<div><label for="email">Электронный адрес</label></div>
+													</div>
+
 													<input type="email" data-mask="email" name="email" id="email" class="form-control my-input 	email" placeholder="yapoiy@mail.ru" required/>
-													<div class="help-block with-errors"></div>
+
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-6">
 												<label for="" style="opacity:0">adfasdf</label>
 												<p class="request">На новый email придут инструкции по подтверждению адреса. </p>
+												<div class="err-msg"></div>
+												<div class="valid-msg"></div>
 											</div>
 										</div>
 									</form>

@@ -516,6 +516,146 @@ $(document).ready(function(){
 	};
 	/*NewPassword END*/
 
+	/*LK*/
+	var L = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			row: {
+				valid: 'has-success',
+				invalid: ' '
+			},
+			err: {
+				container: function($field, validator) {
+					if($($field[0]).hasClass('email')) {
+						return $field.parent().parent().parent().find('.err-msg');
+					} else {
+						return $field.parent('.form-group').find('.err-msg');
+					}
+				}
+			},
+			fields: {
+				user: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				city: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				street: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				home: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				room: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				email: {
+					trigger: 'blur keyup focus',
+					validMessage: 'На новый адрес отправлены инструкции по подтверждению адреса.',
+					validators: {
+						blank: {}
+					}
+				},
+				phone: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+
+
+
+			}
+		},
+
+		initialize : function () {
+			this.Validation('.lk-form');
+		},
+		Validation:function(form){
+
+			$(form).on('init.field.fv', function(e, data) {
+				var field  = data.field,
+				$field = data.element,
+				bv     = data.fv;
+				var mail = $field.hasClass('email');
+				var $email;
+
+				var $span = $('<small/>').addClass('msg').attr('data-field', field).appendTo($field.parent('.form-group').find('.valid-msg')).hide();
+				var message = bv.getOptions(field).validMessage;
+				
+				if(mail) {
+					$email = $('<p style="font-size:12px;">').addClass('msg').attr('data-field', field).appendTo($field.parent().parent().parent().find('.valid-msg')).hide();
+				}
+				if (message) {
+					$span.html(message);
+					$($email).html(message);
+				}
+			})
+
+			.formValidation(this.ValidationOptions)
+
+			.on('success.field.fv', function(e, data) {
+				var field  = data.field,
+				$field = data.element;
+
+				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').show();
+
+				$field.on('focusout',function(e, data){
+					
+					$field.parent('.form-group').find('.msg[data-field="' + field + '"]').fadeOut();
+				});
+
+				var email = $($field).hasClass('email');
+
+				if(email) {
+					$field.parent().parent().parent().find('.request').hide();
+					$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').show();
+				}
+			})
+
+			.on('err.field.fv', function(e, data) {
+				var field  = data.field,
+				$field = data.element;
+
+				$field.data('fv.messages').find('.help-block[data-fv-for="' + data.field + '"]').hide();
+
+				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').hide();
+
+				var email = $($field).hasClass('email');
+
+				if(email) {
+					$field.parent().parent().parent().find('.request').show();
+					$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').hide();
+				}
+				
+			});
+		}
+	};
+
+	/*LK END*/
+
 	/*TogglePassword*/
 	var TogglePassword = {
 
@@ -552,10 +692,11 @@ $(document).ready(function(){
 	Login.initialize();
 	Registration.initialize();
 	TogglePassword.initialize();
+	L.initialize();
 	/*all forms init END*/
-	if ($(".lk-form").length) {
+	/*if ($(".lk-form").length) {
 		LKFORM.init();
-	}
+	}*/
 	function NumberIn(event) {
 		console.log(event.charCode);
 		return (event.charCode >= 48 && event.charCode <= 57);
@@ -638,11 +779,11 @@ $(document).ready(function(){
 		e.preventDefault();
 	}
 
-	
+
 });
 });
 /*START LKFORM*/
-var LKFORM = {};
+/*var LKFORM = {};
 LKFORM.init = function () {
 	this.formListner();
 }
@@ -678,12 +819,13 @@ LKFORM.formListner = function () {
 				success:function(){
 					console.log(UserID);
 				},
-			error:function(data){/*alert(data)*/}
+				error:function(data)
+				{console.log(UserID)}
 		});
 		}
 	}
 	formListner.blur();
-}
+}*/
 
 /*END LKFORM*/
 /*player*/

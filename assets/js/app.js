@@ -493,6 +493,137 @@ $(document).ready(function () {
 	};
 	/*NewPassword END*/
 
+	/*LK*/
+	var L = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			row: {
+				valid: 'has-success',
+				invalid: ' '
+			},
+			err: {
+				container: function container($field, validator) {
+					if ($($field[0]).hasClass('email')) {
+						return $field.parent().parent().parent().find('.err-msg');
+					} else {
+						return $field.parent('.form-group').find('.err-msg');
+					}
+				}
+			},
+			fields: {
+				user: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				city: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				street: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				home: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				room: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				},
+				email: {
+					trigger: 'blur keyup focus',
+					validMessage: 'На новый адрес отправлены инструкции по подтверждению адреса.',
+					validators: {
+						blank: {}
+					}
+				},
+				phone: {
+					trigger: 'blur keyup focus',
+					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+					validators: {
+						blank: {}
+					}
+				}
+
+			}
+		},
+
+		initialize: function initialize() {
+			this.Validation('.lk-form');
+		},
+		Validation: function Validation(form) {
+
+			$(form).on('init.field.fv', function (e, data) {
+				var field = data.field,
+				    $field = data.element,
+				    bv = data.fv;
+				var mail = $field.hasClass('email');
+				var $email;
+
+				var $span = $('<small/>').addClass('msg').attr('data-field', field).appendTo($field.parent('.form-group').find('.valid-msg')).hide();
+				var message = bv.getOptions(field).validMessage;
+
+				if (mail) {
+					$email = $('<p style="font-size:12px;">').addClass('msg').attr('data-field', field).appendTo($field.parent().parent().parent().find('.valid-msg')).hide();
+				}
+				if (message) {
+					$span.html(message);
+					$($email).html(message);
+				}
+			}).formValidation(this.ValidationOptions).on('success.field.fv', function (e, data) {
+				var field = data.field,
+				    $field = data.element;
+
+				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').show();
+
+				$field.on('focusout', function (e, data) {
+
+					$field.parent('.form-group').find('.msg[data-field="' + field + '"]').fadeOut();
+				});
+
+				var email = $($field).hasClass('email');
+
+				if (email) {
+					$field.parent().parent().parent().find('.request').hide();
+					$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').show();
+				}
+			}).on('err.field.fv', function (e, data) {
+				var field = data.field,
+				    $field = data.element;
+
+				$field.data('fv.messages').find('.help-block[data-fv-for="' + data.field + '"]').hide();
+
+				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').hide();
+
+				var email = $($field).hasClass('email');
+
+				if (email) {
+					$field.parent().parent().parent().find('.request').show();
+					$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').hide();
+				}
+			});
+		}
+	};
+
+	/*LK END*/
+
 	/*TogglePassword*/
 	var TogglePassword = {
 
@@ -527,10 +658,11 @@ $(document).ready(function () {
 	Login.initialize();
 	Registration.initialize();
 	TogglePassword.initialize();
+	L.initialize();
 	/*all forms init END*/
-	if ($(".lk-form").length) {
-		LKFORM.init();
-	}
+	/*if ($(".lk-form").length) {
+ 	LKFORM.init();
+ }*/
 	function NumberIn(event) {
 		console.log(event.charCode);
 		return event.charCode >= 48 && event.charCode <= 57;
@@ -606,18 +738,18 @@ $(document).ready(function () {
 	});
 });
 /*START LKFORM*/
-var LKFORM = {};
+/*var LKFORM = {};
 LKFORM.init = function () {
 	this.formListner();
-};
+}
 LKFORM.formListner = function () {
 	var formListner = {
 		defaults: {
 			Input: $(".lk-form input"),
 			userID: $('#userID')
 		},
-		blur: function blur() {
-			var InputName = false;
+		blur: function () {
+			var InputName =  false;
 			var InputValue = false;
 			var Input = formListner.defaults.Input;
 			var UserID = this.defaults.userID.val();
@@ -625,29 +757,30 @@ LKFORM.formListner = function () {
 			Input.blur(function () {
 				InputName = this.name;
 				InputValue = this.value;
-				formListner.save(InputName, InputValue, UserID);
+				formListner.save(InputName,InputValue,UserID);
 			}).keypress(function (e) {
 				if (e.keyCode == 13) {
 					InputName = this.name;
 					InputValue = this.value;
-					formListner.save(InputName, InputValue, UserID);
+					formListner.save(InputName,InputValue,UserID);
 				}
 			});
 		},
-		save: function save(param, param2, UserID) {
+		save: function(param,param2,UserID){
 			$.ajax({
 				type: "POST",
 				url: "/include/account.php",
-				data: { name: param, value: param2, UserID: UserID },
-				success: function success() {
+				data:{name:param,value:param2,UserID:UserID},
+				success:function(){
 					console.log(UserID);
 				},
-				error: function error(data) {/*alert(data)*/}
-			});
+				error:function(data)
+				{console.log(UserID)}
+		});
 		}
-	};
+	}
 	formListner.blur();
-};
+}*/
 
 /*END LKFORM*/
 /*player*/

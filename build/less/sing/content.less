@@ -1659,12 +1659,46 @@ html.open {
 	}
 }
 .lk-form {
+	.flex {
+		display: flex;
+	}
+
+	.help-block {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+
+	.form-control {
+		box-shadow: none;
+	}
+
+	.valid-msg {
+		color:#558b00;
+	}
+
+	
+	.form-group {
+		.flex {
+			justify-content: space-between;
+		}
+		&.has-success {
+			.form-control {
+				border: 1px solid #949494;
+				&:focus {
+					box-shadow: none;
+					border: 1px solid #078cd1;
+				}
+			}
+		}
+	}
+
 	label {
 		font-size: 12px;
 		color: @brand-gray;
 		font-weight: 400;
 		margin-bottom: 3px;
 	}
+
 	input {
 		border-radius: 0;
 		border: 1px solid @brand-gray;
@@ -1675,6 +1709,7 @@ html.open {
 			box-shadow: none;
 		}
 	}
+
 	::-webkit-input-placeholder {color:#353645;}
 	::-moz-placeholder          {color:#353645;}/* Firefox 19+ */
 	:-moz-placeholder           {color:#353645;}/* Firefox 18- */
@@ -1683,6 +1718,7 @@ html.open {
 	.form-group {
 		margin-bottom: 25px;
 	}
+
 	.title {
 		font-size: 12px;
 		a {
@@ -1690,11 +1726,13 @@ html.open {
 		}
 		margin: 15px 0 20px;
 	}
+
 	.request {
 		font-size: 12px;
 		color: @brand-gray;
 	}
 	/*add-organization-form*/ 
+
 	textarea {
 		display: block;
 		resize: none;
@@ -1714,6 +1752,7 @@ html.open {
 			outline: none;
 		}
 	}
+
 	.load-file {
 		width: 120px;
 		height: 82px;
