@@ -2392,7 +2392,118 @@ textarea {
 	}
 }
 /*END shop-your-buy*/
-
+// корзина
+.basket {
+	border: 1px solid #e7e7e7;
+	&-content{
+		
+		.item {
+			padding: 25px 25px 20px;
+			border-bottom: 1px solid #e7e7e7;
+			&.flex {
+				display: flex;
+				justify-content: space-between;
+			}
+			&-title {
+				&>div {
+					width: 200px;
+				}
+				p {
+					font-size: 12px;
+					margin-bottom: 5px;
+				}
+				h4 {
+					font-size: 16px;
+					margin: 0 0 13px;
+				}
+				a {
+					color: #078cd1;
+					font-weight: 400;
+					&:hover,&:focus {
+						color: #47b8f3;
+						text-decoration: none;
+						transition: .3s ease all;
+					}
+				}
+			}
+			&-count {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				.sum {
+					min-width: 50px;
+					p {
+						font-size: 16px;
+						color: #353645;
+						margin: 0;
+					}	
+				}
+				input {
+					width: 40px;
+					height: 24px;
+					padding: 0 5px;
+					border: 1px solid #e7e7e7;
+					outline: none;
+					font-size: 16px;
+					color: #353645;
+					line-height: 24px;
+					text-align: right;
+					margin: 0 5px;
+				}
+				.btn-basket {
+					width: 15px;
+					height: 24px;
+					background-repeat: no-repeat;
+					background-position: center center;
+					display: inline-block;
+					&.minus {
+						background-image: url(../img/basket-minus.png);
+					}
+					&.plus {
+						background-image: url(../img/basket-plus.png);
+					}		
+				}
+			}
+			.counter {
+				vertical-align: middle;
+				>* {
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	&-footer{
+		.btn-default {
+			width: 100%;
+			background-color: #fffedb;
+			text-align: center;
+			padding: 20px 0;
+			border: none;
+			border-radius: 0;
+			span {
+				font-size: 14px;
+				color: #078cd1;
+				padding-left: 20px;
+				position: relative;
+				&:before {
+					content: '';
+					width: 14px;
+					height: 12px;
+					position: absolute;
+					left: 0;
+					top: 4px;
+					background-image: url(../img/basket-footer-button.png);
+					background-repeat: no-repeat;
+				}
+			}
+			&:hover,&:focus,&:active {
+				outline: none;
+				background-color: #fffedb;
+			}
+		}
+	}
+}
+//END корзина
 /*in-section*/
 .in-section {
 	&.leftSideBar {
