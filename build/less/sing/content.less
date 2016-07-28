@@ -1054,7 +1054,12 @@
 					background: url(../img/social/heart.png) center center no-repeat;
 				}
 			}
-			
+			&.active {
+				color: #078cd1 !important;
+				.my-icon.heart-normal {
+					background: url(../img/social/heart.png) center center no-repeat;
+				}
+			}
 		}
 	}
 	&:hover,&:focus {
@@ -1121,7 +1126,11 @@
 					&:hover,&:focus {
 						opacity: .5;
 					}
+					&.pluso-more {
+						display: none;
+					}
 				}
+				width: 135px;
 			}
 			img {
 				margin-bottom: 0;
