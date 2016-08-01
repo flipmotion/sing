@@ -1130,7 +1130,7 @@
 						display: none;
 					}
 				}
-				width: 135px;
+				
 			}
 			img {
 				margin-bottom: 0;
@@ -1929,10 +1929,33 @@ html.open {
 		}
 	}
 }
+#Antadd {
+	.input-num {
+		width: 100px;
+	}
+	.help-block {
+		margin-top: 5px;
+		color: #ff3d3d;
+	}
+	.form-group.has-error {
+		.load-file {
+			border-color: #ff3d3d;
+		}
+		.form-control {
+			border-color: #ff3d3d;
+			&:focus {
+				box-shadow: none;
+			}
+		}
+	}
+}
 .item-preview {
 	&.ant {
 		.item-preview-header {
 			padding: 20px 0px 0;
+			display: block;
+			text-align: center;
+			height: auto;
 			.preview {
 				margin-top: -20px;
 			}
@@ -1941,7 +1964,7 @@ html.open {
 			}
 		}
 		.item-preview-content {
-			//padding-top: 30px;
+			padding-top: 25px;
 		}
 	}
 }

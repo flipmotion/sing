@@ -494,133 +494,137 @@ $(document).ready(function () {
 	/*NewPassword END*/
 
 	/*LK*/
-	var L = {
-		ValidationOptions: {
-			framework: 'bootstrap',
-			locale: 'ru_RU',
-			row: {
-				valid: 'has-success',
-				invalid: ' '
-			},
-			err: {
-				container: function container($field, validator) {
-					if ($($field[0]).hasClass('email')) {
-						return $field.parent().parent().parent().find('.err-msg');
-					} else {
-						return $field.parent('.form-group').find('.err-msg');
-					}
-				}
-			},
-			fields: {
-				user: {
-					trigger: 'blur keyup focus',
-					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
-					validators: {
-						blank: {}
-					}
-				},
-				city: {
-					trigger: 'blur keyup focus',
-					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
-					validators: {
-						blank: {}
-					}
-				},
-				street: {
-					trigger: 'blur keyup focus',
-					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
-					validators: {
-						blank: {}
-					}
-				},
-				home: {
-					trigger: 'blur keyup focus',
-					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
-					validators: {
-						blank: {}
-					}
-				},
-				room: {
-					trigger: 'blur keyup focus',
-					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
-					validators: {
-						blank: {}
-					}
-				},
-				email: {
-					trigger: 'blur keyup focus',
-					validMessage: 'На новый адрес отправлены инструкции по подтверждению адреса.',
-					validators: {
-						blank: {}
-					}
-				},
-				phone: {
-					trigger: 'blur keyup focus',
-					validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
-					validators: {
-						blank: {}
-					}
-				}
-
-			}
-		},
-
-		initialize: function initialize() {
-			this.Validation('.lk-form');
-		},
-		Validation: function Validation(form) {
-
-			$(form).on('init.field.fv', function (e, data) {
-				var field = data.field,
-				    $field = data.element,
-				    bv = data.fv;
-				var mail = $field.hasClass('email');
-				var $email;
-
-				var $span = $('<small/>').addClass('msg').attr('data-field', field).appendTo($field.parent('.form-group').find('.valid-msg')).hide();
-				var message = bv.getOptions(field).validMessage;
-
-				if (mail) {
-					$email = $('<p style="font-size:12px;">').addClass('msg').attr('data-field', field).appendTo($field.parent().parent().parent().find('.valid-msg')).hide();
-				}
-				if (message) {
-					$span.html(message);
-					$($email).html(message);
-				}
-			}).formValidation(this.ValidationOptions).on('success.field.fv', function (e, data) {
-				var field = data.field,
-				    $field = data.element;
-
-				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').show();
-
-				$field.on('focusout', function (e, data) {
-
-					$field.parent('.form-group').find('.msg[data-field="' + field + '"]').fadeOut();
-				});
-
-				var email = $($field).hasClass('email');
-
-				if (email) {
-					$field.parent().parent().parent().find('.request').hide();
-					$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').show();
-				}
-			}).on('err.field.fv', function (e, data) {
-				var field = data.field,
-				    $field = data.element;
-
-				$field.data('fv.messages').find('.help-block[data-fv-for="' + data.field + '"]').hide();
-
-				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').hide();
-
-				var email = $($field).hasClass('email');
-
-				if (email) {
-					$field.parent().parent().parent().find('.request').show();
-					$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').hide();
-				}
-			});
-		}
-	};
+	/*var L = {
+ 	ValidationOptions: {
+ 		framework: 'bootstrap',
+ 		locale: 'ru_RU',
+ 		row: {
+ 			valid: 'has-success',
+ 			invalid: ' '
+ 		},
+ 		err: {
+ 			container: function($field, validator) {
+ 				if($($field[0]).hasClass('email')) {
+ 					return $field.parent().parent().parent().find('.err-msg');
+ 				} else {
+ 					return $field.parent('.form-group').find('.err-msg');
+ 				}
+ 			}
+ 		},
+ 		fields: {
+ 			user: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 			city: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 			street: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 			home: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 			room: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 			email: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: 'На новый адрес отправлены инструкции по подтверждению адреса.',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 			phone: {
+ 				trigger: 'blur keyup focus',
+ 				validMessage: '<img src="assets/img/social/valid.png">&nbsp;&nbsp;Сохранено!',
+ 				validators: {
+ 					blank: {}
+ 				}
+ 			},
+ 
+ 			}
+ 	},
+ 		initialize : function () {
+ 		this.Validation('.lk-form');
+ 	},
+ 	Validation:function(form){
+ 			$(form).on('init.field.fv', function(e, data) {
+ 			var field  = data.field,
+ 			$field = data.element,
+ 			bv     = data.fv;
+ 			var mail = $field.hasClass('email');
+ 			var $email;
+ 				var $span = $('<small/>').addClass('msg').attr('data-field', field).appendTo($field.parent('.form-group').find('.valid-msg')).hide();
+ 			var message = bv.getOptions(field).validMessage;
+ 			
+ 			if(mail) {
+ 				$email = $('<p style="font-size:12px;">').addClass('msg').attr('data-field', field).appendTo($field.parent().parent().parent().find('.valid-msg')).hide();
+ 			}
+ 			if (message) {
+ 				$span.html(message);
+ 				$($email).html(message);
+ 			}
+ 		})
+ 			.formValidation(this.ValidationOptions)
+ 			.on('success.field.fv', function(e, data) {
+ 			var field  = data.field,
+ 			$field = data.element;
+ 				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').show();
+ 				$field.on('focusout',function(e, data){
+ 				
+ 				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').fadeOut();
+ 			});
+ 				var email = $($field).hasClass('email');
+ 				if(email) {
+ 				$field.parent().parent().parent().find('.request').hide();
+ 				$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').show();
+ 			}
+ 			
+ 			$.ajax({
+ 				type: "POST",
+ 				url: "/include/account.php",
+ 				data:{name:param,value:param2,UserID:UserID},
+ 				success:function(){
+ 					console.log(UserID);
+ 				},
+ 				error:function(data)
+ 				{console.log(UserID)}
+ 			});
+ 			})
+ 			.on('err.field.fv', function(e, data) {
+ 			var field  = data.field,
+ 			$field = data.element;
+ 				$field.data('fv.messages').find('.help-block[data-fv-for="' + data.field + '"]').hide();
+ 				$field.parent('.form-group').find('.msg[data-field="' + field + '"]').hide();
+ 				var email = $($field).hasClass('email');
+ 				if(email) {
+ 				$field.parent().parent().parent().find('.request').show();
+ 				$field.parent().parent().parent().find('.msg[data-field="' + field + '"]').hide();
+ 			}
+ 			
+ 		});
+ 	}
+ };*/
 
 	/*LK END*/
 
@@ -658,7 +662,7 @@ $(document).ready(function () {
 	Login.initialize();
 	Registration.initialize();
 	TogglePassword.initialize();
-	L.initialize();
+	/*L.initialize();*/
 	/*all forms init END*/
 	/*if ($(".lk-form").length) {
  	LKFORM.init();
@@ -712,7 +716,7 @@ $(document).ready(function () {
 
 		var name = $(this).attr('name');
 		if (valueCurrent >= minValue) {
-			console.log(name);
+
 			$(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled');
 		} else {
 			alert('Sorry, the minimum value was reached');
@@ -954,8 +958,200 @@ function playerClose() {
 
 //file
 $(document).ready(function () {
+	/*NewPassword*/
+	var AddValidation = {
+		ValidationOptions: {
+			framework: 'bootstrap',
+			locale: 'ru_RU',
+			fields: {
+				product: {
+					trigger: 'blur keyup focus keydown',
+
+					validators: {
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				category: {
+					trigger: 'blur keyup focus keydown',
+
+					validators: {
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				about: {
+					trigger: 'blur focus keydown',
+
+					validators: {
+						callback: {
+							message: 'Длина поля не может быть ниже 50 символов!',
+							callback: function callback(value, validator, $field) {
+								var v = $field.find('input').val().replace(/\W/g, '');
+								if (v.length <= 50) {
+									return false;
+								} else {
+									return true;
+								}
+							}
+						},
+						blank: {}
+					}
+				},
+				contacts: {
+					trigger: 'blur keyup focus keydown',
+
+					validators: {
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				price: {
+					trigger: 'blur keyup focus keydown',
+
+					validators: {
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				},
+				photo: {
+					trigger: 'blur keyup focus keydown change',
+
+					validators: {
+						notEmpty: {
+							message: 'Это поле не может быть пустым!'
+						},
+						blank: {}
+					}
+				}
+
+			}
+		},
+
+		initialize: function initialize() {
+			this.Validation('#Antadd');
+		},
+		Validation: function Validation(form) {
+			/*$(form).on('init.field.fv', function(e, data) {
+   })*/
+			$(form).formValidation(this.ValidationOptions).on('success.form.fv', function (e) {
+				e.preventDefault();
+				var $form = $(e.target),
+				    fv = $form.data('formValidation');
+				// For demonstrating purpose, the url is generated randomly
+				// to get different response each time
+				// In fact, it should be /path/to/your/back-end/
+				var url = ['response.json'];
+				$.ajax({
+					url: url,
+					data: $form.serialize(),
+					dataType: 'json',
+					method: 'post'
+				}).success(function (response) {
+					// If there is error returned from server
+					if (response.result === 'error') {
+						for (var field in response.fields) {
+							fv
+							// Show the custom message
+							.updateMessage(field, 'blank', response.fields[field])
+							// Set the field as invalid
+							.updateStatus(field, 'INVALID', 'blank');
+						}
+					} else {
+						// Do whatever you want here
+						// such as showing a modal ...
+					}
+				});
+			});
+		}
+	};
+	/*NewPassword END*/
+	AddValidation.initialize();
+
+	var Add = {
+		inName: '[data-item="product"]',
+		outName: '[data-item-to="product"]',
+
+		inCategory: '[data-item="category"]',
+		outCategory: '[data-item-to="category"]',
+
+		inAbout: '[data-item="about"]',
+		outAbout: '[data-item-to="about"]',
+
+		inPrice: '[data-item="price"]',
+		outPrice: '[data-item-to="price"]',
+
+		init: function init() {
+			this.render();
+			this.eventListener();
+		},
+
+		render: function render(content, container) {
+			this.container = container;
+			this.content = content;
+			$(this.container).html(this.content);
+		},
+
+		Name: function Name() {
+			var v = $(Add.inName).val();
+			Add.render(v, Add.outName);
+			if (v.length <= 0) {
+				Add.render('Название товара', Add.outName);
+			} else {
+				Add.render(v, Add.outName);
+			}
+		},
+
+		Category: function Category() {
+			var v = $(Add.inCategory).val();
+			Add.render(v, Add.outCategory);
+			if (v.length <= 0) {
+				Add.render('Категория', Add.outCategory);
+			} else {
+				Add.render(v, Add.outCategory);
+			}
+		},
+
+		About: function About(e) {
+			var v = $(Add.inAbout).text();
+			var nv = v.replace(/\W/g, '');
+			Add.render(v, Add.outAbout);
+			if (v.length <= 65) {
+				$(e.currentTarget).find('input').val('');
+				Add.render('Описание товара» пустое, в карточке показываем текст: «Краткое описание товара. Буквально несколько строк, основные моменты. Желательно не больше четырёх строк, всё описание будет внтури.', Add.outAbout);
+			} else {
+				Add.render(v, Add.outAbout);
+				$(e.currentTarget).find('input').val(nv);
+			}
+		},
+		Price: function Price(event) {
+			var v = $(Add.inPrice).val();
+			if (v.length <= 0) {
+				Add.render('Цена', Add.outPrice);
+			} else {
+				Add.render(v + ' <span class="rub"></span>', Add.outPrice);
+			}
+		},
+
+		eventListener: function eventListener(elem) {
+			$(this.inName).on('keyup keydown', this.Name);
+			$(this.inCategory).on('change', this.Category);
+			$(this.inAbout).on('keyup keydown', this.About);
+			$(this.inPrice).on('keyup keydown', this.Price);
+		}
+	};
+	Add.init();
 	//simple file preview manipulations
 	var imagesPreview = function imagesPreview(input, placeToInsertImagePreview) {
+		var c = $(input).clone(true);
 		if (input.files) {
 			var filesAmount = input.files.length;
 			if (filesAmount >= 1) {
@@ -970,13 +1166,26 @@ $(document).ready(function () {
 				$('.del').on('click', function (e) {
 					$(this).parent('.wrap-img').remove();
 					var list = $('.wrap-img').length;
+
+					previewPhoto();
+
 					if (list <= 0) {
-						placeholdIt();
+						$(input).replaceWith(c);
 					}
 				});
 			} else {}
 		}
 	};
+	function previewPhoto() {
+		var to = $('[data-item-to="photo"]');
+		var count = $('.wrap-img').length;
+		var first = $('.wrap-img')[0];
+		var img = $(first).find('img').clone();
+		to.html(img);
+		if (count <= 0) {
+			to.html('<div class="preview"><img src="assets/img/pic.png" alt="" ></div>');
+		}
+	}
 	function setUp(place, file) {
 		var img = $($.parseHTML('<img>')).attr('src', window.URL.createObjectURL(file));
 		img.onload = function (e) {
@@ -987,13 +1196,10 @@ $(document).ready(function () {
 		$(place).find('.no-photo').remove();
 		$(place).addClass('when-upload-photo');
 		$(place).removeClass('when-no-photo');
+
+		previewPhoto();
 	}
 
-	function placeholdIt(place) {
-		$(place).removeClass('when-upload-photo');
-		$(place).addClass('when-no-photo');
-		$(place).html('<div class="no-photo"><img src="http://placehold.it/120x80"></div>');
-	}
 	$('[data-item="photo"]').on('change', function () {
 		$('div.photo-upload-container.one').html(' ');
 		imagesPreview(this, 'div.photo-upload-container.one');
