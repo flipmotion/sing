@@ -13,7 +13,7 @@ $(document).ready(function(){
 	let owlMusicPreview2 = $('[data-item="slider-music-2"]');
 	let owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	let owl2 = $('[data-slider="thumbs"]');
-
+	let removeInt = $('[data-el="remove"]');
 	$('[data-item="to-top"]').click(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
@@ -225,7 +225,10 @@ $(document).ready(function(){
 		console.log(Menu.getBoundingClientRect().top);
 		Menu.style.height = offsetHeader + 'px';
 	});
-
+	removeInt.on('click', function(e){
+		e.preventDefault();
+		$(this).parent().remove();
+	});
 	closeMenu.on('click',function(e){
 		$('html').removeClass('open');
 	});
@@ -745,51 +748,51 @@ $(document).ready(function(){
 				}
 
 			}
-		} else {
-			input.val(0);
-		}
+			} else {
+				input.val(0);
+			}
+		});
+		$('.input-number').focusin(function(){
+			$(this).data('oldValue', $(this).val());
+		});
+		$('.input-number').change(function() {
+
+			var minValue =  parseInt($(this).attr('min'));
+			var maxValue =  parseInt($(this).attr('max'));
+			var valueCurrent = parseInt($(this).val());
+
+			var name = $(this).attr('name');
+			if(valueCurrent >= minValue) {
+				
+				$(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
+
+			} else {
+				alert('Sorry, the minimum value was reached');
+				$(this).val($(this).data('oldValue'));
+			}
+			if(valueCurrent <= maxValue) {
+				$(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+			} else {
+				
+				$(this).val($(this).data('oldValue'));
+			}
+
+
+		});
+		$(".input-number").keydown(function (e) {
+
+			if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) ||  (e.keyCode >= 35 && e.keyCode <= 39)) {
+
+				return;
+			}
+
+			if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+				e.preventDefault();
+			}
+
+
+		});
 	});
-	$('.input-number').focusin(function(){
-		$(this).data('oldValue', $(this).val());
-	});
-	$('.input-number').change(function() {
-
-		var minValue =  parseInt($(this).attr('min'));
-		var maxValue =  parseInt($(this).attr('max'));
-		var valueCurrent = parseInt($(this).val());
-
-		var name = $(this).attr('name');
-		if(valueCurrent >= minValue) {
-			
-			$(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
-
-		} else {
-			alert('Sorry, the minimum value was reached');
-			$(this).val($(this).data('oldValue'));
-		}
-		if(valueCurrent <= maxValue) {
-			$(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
-		} else {
-			
-			$(this).val($(this).data('oldValue'));
-		}
-
-
-	});
-	$(".input-number").keydown(function (e) {
-
-		if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) ||  (e.keyCode >= 35 && e.keyCode <= 39)) {
-
-			return;
-		}
-
-		if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-			e.preventDefault();
-		}
-
-
-	});
-});
 /*START LKFORM*/
 /*var LKFORM = {};
 LKFORM.init = function () {

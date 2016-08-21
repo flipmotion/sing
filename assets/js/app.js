@@ -23,7 +23,7 @@ $(document).ready(function () {
 	var owlMusicPreview2 = $('[data-item="slider-music-2"]');
 	var owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	var owl2 = $('[data-slider="thumbs"]');
-
+	var removeInt = $('[data-el="remove"]');
 	$('[data-item="to-top"]').click(function () {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
@@ -202,7 +202,10 @@ $(document).ready(function () {
 		console.log(Menu.getBoundingClientRect().top);
 		Menu.style.height = offsetHeader + 'px';
 	});
-
+	removeInt.on('click', function (e) {
+		e.preventDefault();
+		$(this).parent().remove();
+	});
 	closeMenu.on('click', function (e) {
 		$('html').removeClass('open');
 	});

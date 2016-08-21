@@ -2,6 +2,18 @@
 @import 'validation/validation.less';
 .content {
 	padding-bottom: 95px;
+	&.shop {
+		padding-top: 30px;
+		.bread-crumbs-title {
+			margin-bottom: 0;
+		}
+		.item-privew .price {
+			
+		}
+	}
+}
+.rubSymbol {
+	font-family: Arial,Helvetica,sans-serif;
 }
 .font-16 {
 	font-size: 16px;
@@ -1924,7 +1936,9 @@ html.open {
 				background: url(../img/content/rub.png);
 				background-repeat: no-repeat;
 				background-position: center center;
-				vertical-align: bottom;
+				
+				vertical-align: middle;
+				margin-top: -3px;
 			}
 		}
 	}
@@ -2311,15 +2325,20 @@ textarea {
 		border-right: 20px solid @brand-blue;
 		border-bottom: 20px solid transparent;
 	}
-	&:before {
-		content: '';
+	[data-el="remove"] {
 		position: absolute;
-		top: 0;
-		right: 0;
+		top:0;
+		right:0;
 		width: 20px;
 		height: 20px;
-		background: url(../img/content/shop-liked-star.png) center center no-repeat;
 		z-index: 10;
+		background: url(../img/content/shop-liked-star.png) center center no-repeat;
+		transition:@transition;
+		opacity: 1;
+		cursor: pointer;
+		&:hover,&:focus {
+			opacity: .5;
+		}
 	}
 }
 /*END shop-liked*/
@@ -2345,6 +2364,7 @@ textarea {
 /*END shop-category*/
 /*shop-checkout*/
 .shop-checkout {
+	padding-top: 30px;
 	.request {
 		span {
 			display: block;
@@ -2368,9 +2388,13 @@ textarea {
 			width: 50%;
 			.total {
 				font-size: 16px;
+				margin-bottom: 0;
 				span {
 					font-size: 22px;
 					font-weight: 600;
+				}
+				.rubSymbol {
+					font-weight: 400;
 				}
 			}
 		}
@@ -2402,10 +2426,19 @@ textarea {
 			display: inline;
 		}
 	}
+	.form-control {
+		border-color: #cecece;
+	}
+	.request {
+		margin-bottom: 20px;
+	}
 }
 /*END shop-checkout*/
 /*shop-your-buy*/
 .your-buy {
+	.basket {
+		border: none;
+	}
 	&.item-preview {
 		border: 1px solid #cecece;
 		.row {
@@ -2420,6 +2453,10 @@ textarea {
 		.item-preview-content {
 			a {
 				color: #078cd1;
+				transition:@transition;
+				&:hover,&:focus {
+					color: #47b8f3;
+				}
 			}
 		}
 		.item-preview-footer {
@@ -2437,6 +2474,10 @@ textarea {
 							font-size: 14px;
 							color: #078cd1;
 							margin-right: 20px;
+							transition:@transition;
+							&:hover,&:focus {
+								color: #47b8f3;
+							}
 						}
 					}
 					&:nth-child(3) {
@@ -2464,10 +2505,15 @@ textarea {
 }
 /*END shop-your-buy*/
 // корзина
+.ant,
+.shop {
+	.basket {
+		border: none;
+	}
+}
 .basket {
 	border: 1px solid #e7e7e7;
 	&-content{
-		
 		.item {
 			padding: 25px 25px 20px;
 			border-bottom: 1px solid #e7e7e7;
@@ -2755,5 +2801,8 @@ textarea {
 		margin-top:-20px;
 		margin-bottom: 20px;
 	}
+}
+.item-preview.shop .item-preview-header {
+	padding-top: 0;
 }
 /*modal END*/
