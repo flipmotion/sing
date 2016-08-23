@@ -2343,13 +2343,150 @@ textarea {
 }
 /*END shop-liked*/
 /*shop-card*/
+.bg-select {
+	display: flex;
+	widows: 100%;
+	align-items: center;
+	.bg-color-select {
+		width: 25px;
+		height: 18px;
+		border-radius: 3px;
+		display: inline-block;
+		margin-left: 5px;
+	}
+}
 .shop-card {
+	[data-item="Scolor"] {
+		width: 100% !important;
+		
+	}
+	.select2-container {
+		margin-bottom: 20px;
+	}
 	.one-news-quote {
 		margin-top: 20px;
+		padding: 20px 60px 20px;
+		p {
+			line-height: 1.5;
+			margin-bottom: 0;
+			font-weight: 300;
+		}
 	}
 	.item-preview {
 		h2 {
 			margin: 10px 0;
+		}
+	}
+	.card-filter {
+		padding: 25px;
+		border: 1px solid #e7e7e7;
+		label {
+			font-size: 12px;
+			color: #949494;
+			display: block;
+			font-weight: 400;
+			margin-bottom: 6px;
+		}
+		>div {	
+			input[type=checkbox] {
+				opacity: 0;
+				width: 0;
+				height: 0;
+				display: none;
+			}
+			label {
+				padding: 0;
+				padding-left: 20px;
+				position: relative;
+				font-size: 14px;
+				color: #353645;
+				cursor: pointer;
+				margin-bottom: 7px;
+				&:before {
+					content: "";
+					display: inline-block;
+					position: absolute;
+					width: 13px;
+					height: 13px;
+					left: 0;
+					top: 3px;
+					border: 1px solid @brand-light-gray;
+				}
+			}
+			input[type=checkbox]:checked + label {
+				&:after {
+					content: "";
+					display: inline-block;
+					position: absolute;
+					width: 13px;
+					height: 13px;
+					left: 0;
+					top: 3px;
+					background: url(../img/checked.png);
+				}
+			}
+		}
+	}
+	.cnt-basket {
+		background-color: #f4f4f4;
+		padding: 25px 20px;
+		p {
+			color: #353645;
+		}
+		.item-count {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			input {
+				width: 40px;
+				height: 24px;
+				padding: 0 5px;
+				border: 1px solid #e7e7e7;
+				outline: none;
+				font-size: 16px;
+				color: #353645;
+				line-height: 24px;
+				text-align: right;
+				margin: 0 5px;
+			}
+			.btn-basket {
+				width: 15px;
+				height: 24px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				display: inline-block;
+				&.minus {
+					background-image: url(../img/basket-minus.png);
+				}
+				&.plus {
+					background-image: url(../img/basket-plus.png);
+				}		
+			}
+			.total {
+				p {
+					margin: 0;
+					font-size: 16px;
+					span {
+						font-size: 22px;
+						font-weight: 600;
+					}
+				}
+			}
+		}
+		.counter {
+			vertical-align: middle;
+			>* {
+				vertical-align: middle;
+			}
+		}
+		.btn-table {
+			width: 100%;
+			padding: 10px 0;
+			margin: 18px 0 0 0;
+			span {
+				padding-left: 35px;
+				background: url(../img/shop-card-basket.png) left center no-repeat;
+			}
 		}
 	}
 }
@@ -2503,6 +2640,82 @@ textarea {
 		}
 	}
 }
+/*END shop-your-buy*/
+/*shop-search*/
+.filtres {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.my-select {
+		outline: none;
+	}
+	>div {
+		.sort {
+			font-weight: 600;
+			margin: 0 20px 0 0;
+		}
+		&:nth-child(2) {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			select {
+				border: none;
+				color: #078cd1;
+				outline: none;
+				-webkit-appearance: none;
+				-moz-appearance:    none;
+				appearance:         none;
+				padding: 10px 20px 10px 5px;
+				background: url(../img/select-arrow.png) center right no-repeat;
+				margin-right: 15px;
+				cursor: pointer;
+			}
+			a {
+				display: inline-block;
+				&.content-row {
+					margin-right: 15px;
+				}
+			}
+		}
+	}
+}
+.select2-container {
+	width: 240px;
+	background: url(../img/my-select-arrow.png) center right 10px no-repeat;
+}
+.select2-container--default
+.select2-selection--single {
+	border-radius: 0;
+	border: 1px solid #e7e7e7;
+}
+.select2-container--default 
+.select2-selection--single 
+.select2-selection__arrow b {
+	border: none;
+}
+.select2-container
+.select2-selection--single {
+	height: auto;
+	height: 38px;
+}
+.select2-search--dropdown {
+	display: none;
+}
+.select2-container--default
+.select2-selection--single 
+.select2-selection__rendered {
+	color: #949494;
+	line-height: 36px;
+	padding-left: 15px;
+	padding-right: 40px;
+}
+.select2-container--default
+.select2-selection--single 
+.select2-selection__arrow {
+	height: 38px;
+	background: url(../img/my-select-arrow.png) center left no-repeat;
+}
+/*END shop-search*/
 /*END shop-your-buy*/
 // корзина
 .ant,

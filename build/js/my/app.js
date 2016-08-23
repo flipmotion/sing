@@ -14,6 +14,23 @@ $(document).ready(function(){
 	let owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	let owl2 = $('[data-slider="thumbs"]');
 	let removeInt = $('[data-el="remove"]');
+	$('.my-select').select2();
+	$('.select2').removeAttr('style');
+
+	function colorTmp (data, container) {
+		console.log(data, container);
+		if (!data.id) { return data.text;}
+		var $data = $(
+			'<div class="bg-select"><span>' + data.text + '</span><span class="bg-color-select" style="background-color: '+ data.element.value +'"></span>' + '</div>'
+			);
+		return $data;
+	};
+
+	$('[data-item="Scolor"]').select2({
+		templateResult: colorTmp,
+		templateSelection: colorTmp
+	});
+
 	$('[data-item="to-top"]').click(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
@@ -748,51 +765,51 @@ $(document).ready(function(){
 				}
 
 			}
-			} else {
-				input.val(0);
-			}
-		});
-		$('.input-number').focusin(function(){
-			$(this).data('oldValue', $(this).val());
-		});
-		$('.input-number').change(function() {
-
-			var minValue =  parseInt($(this).attr('min'));
-			var maxValue =  parseInt($(this).attr('max'));
-			var valueCurrent = parseInt($(this).val());
-
-			var name = $(this).attr('name');
-			if(valueCurrent >= minValue) {
-				
-				$(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
-
-			} else {
-				alert('Sorry, the minimum value was reached');
-				$(this).val($(this).data('oldValue'));
-			}
-			if(valueCurrent <= maxValue) {
-				$(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
-			} else {
-				
-				$(this).val($(this).data('oldValue'));
-			}
-
-
-		});
-		$(".input-number").keydown(function (e) {
-
-			if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) ||  (e.keyCode >= 35 && e.keyCode <= 39)) {
-
-				return;
-			}
-
-			if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-				e.preventDefault();
-			}
-
-
-		});
+		} else {
+			input.val(0);
+		}
 	});
+	$('.input-number').focusin(function(){
+		$(this).data('oldValue', $(this).val());
+	});
+	$('.input-number').change(function() {
+
+		var minValue =  parseInt($(this).attr('min'));
+		var maxValue =  parseInt($(this).attr('max'));
+		var valueCurrent = parseInt($(this).val());
+
+		var name = $(this).attr('name');
+		if(valueCurrent >= minValue) {
+
+			$(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
+
+		} else {
+			alert('Sorry, the minimum value was reached');
+			$(this).val($(this).data('oldValue'));
+		}
+		if(valueCurrent <= maxValue) {
+			$(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled')
+		} else {
+
+			$(this).val($(this).data('oldValue'));
+		}
+
+
+	});
+	$(".input-number").keydown(function (e) {
+
+		if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 || (e.keyCode == 65 && e.ctrlKey === true) ||  (e.keyCode >= 35 && e.keyCode <= 39)) {
+
+			return;
+		}
+
+		if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+			e.preventDefault();
+		}
+
+
+	});
+});
 /*START LKFORM*/
 /*var LKFORM = {};
 LKFORM.init = function () {

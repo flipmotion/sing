@@ -24,6 +24,23 @@ $(document).ready(function () {
 	var owlMusicPreview3 = $('[data-item="slider-music-3"]');
 	var owl2 = $('[data-slider="thumbs"]');
 	var removeInt = $('[data-el="remove"]');
+	$('.my-select').select2();
+	$('.select2').removeAttr('style');
+
+	function colorTmp(data, container) {
+		console.log(data, container);
+		if (!data.id) {
+			return data.text;
+		}
+		var $data = $('<div class="bg-select"><span>' + data.text + '</span><span class="bg-color-select" style="background-color: ' + data.element.value + '"></span>' + '</div>');
+		return $data;
+	};
+
+	$('[data-item="Scolor"]').select2({
+		templateResult: colorTmp,
+		templateSelection: colorTmp
+	});
+
 	$('[data-item="to-top"]').click(function () {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
